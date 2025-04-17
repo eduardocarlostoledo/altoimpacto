@@ -1,0 +1,26 @@
+
+/* HeroSection.css */
+/* src/styles/components/HeroSection.css */
+
+.hero-section {
+    padding: 6rem 2rem;
+    
+    
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  

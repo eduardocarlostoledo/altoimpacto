@@ -1,0 +1,74 @@
+/* src/styles/components/Footer.css */
+
+.footer-wrapper {
+    background-color: #111;
+    color: #eee;
+    padding: 3rem 2rem 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .footer-brand {
+    flex: 1 1 300px;
+  }
+  
+  .footer-brand h2 {
+    color: #d4af37; /* dorado */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-brand p {
+    line-height: 1.6;
+    color: #ccc;
+  }
+  
+  .footer-columns {
+    display: flex;
+    gap: 3rem;
+    flex: 1 1 300px;
+  }
+  
+  .footer-column h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 0.6rem;
+  }
+  
+  .footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #d4af37;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #333;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: #888;
+  }
+  

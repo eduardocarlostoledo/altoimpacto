@@ -1,24 +1,17 @@
 # React + Vite
 
-
-src/
-├── assets/
-│   ├── images/       # Aquí pondrías las imágenes descargadas
-├── components/
-│   ├── Header.jsx
-│   ├── Footer.jsx
-│   ├── Navbar.jsx
-├── pages/
-│   ├── Home.jsx
-│   ├── Consultora/
-│   │   ├── ConsultoraHero.jsx
-│   │   ├── ConsultoraServices.jsx
-│   ├── Constructora/
-│   │   ├── ConstructoraHero.jsx
-│   │   ├── ConstructoraServices.jsx
-│   ├── Inmobiliaria/
-│   │   ├── InmobiliariaHero.jsx
-│   │   ├── InmobiliariaServices.jsx
-├── App.jsx
-├── main.jsx
-├── index.css
+src
+├── styles
+│   ├── index.css              // Reset + estilos globales
+│   ├── app.css                // Estilos generales del App
+│   ├── components/
+│   │   ├── Navbar.css
+│   │   ├── Footer.css
+│   │   ├── Home.css
+│   │   ├── HeroSection.css
+│   │   ├── ConsultoraHero.css
+│   │   ├── ConstructoraHero.css
+│   │   ├── InmobiliariaHero.css
+│   │   ├── GoldDivider.css
+│   │   ├── FixOpacity.css
+│   │   └── LoadingSpinner.css

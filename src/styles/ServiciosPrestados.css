@@ -1,0 +1,88 @@
+/* ServiciosPrestados.css */
+
+.servicios-container {
+    padding: 6rem 2rem;
+    background: linear-gradient(to bottom, #0f2027, #203a43);
+    color: white;
+    text-align: center;
+  }
+  
+  .servicios-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+  
+  .servicio-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+  
+  .servicio-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  }
+  
+  .servicio-box h3 {
+    font-size: 1.4rem;
+    color: #d4af37;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .servicio-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .servicio-box li {
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0.5rem;
+    color: #eee;
+    position: relative;
+    padding-left: 1.2rem;
+  }
+  
+  .servicio-box li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: #d4af37;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .servicios-title {
+      font-size: 2rem;
+    }
+    .servicio-box h3 {
+      font-size: 1.2rem;
+    }
+    .servicio-box li {
+      font-size: 0.95rem;
+    }
+  }
+  

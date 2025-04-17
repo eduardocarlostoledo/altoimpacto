@@ -1,14 +1,10 @@
+// ✅ 4. GoldDivider.jsx
+
 import React from 'react';
-import styles from './GoldDivider.module.scss';
+import '../styles/GoldDivider.css';
 
 const GoldDivider = () => {
-  return (
-    <div className={styles.goldDivider}>
-      <div className={styles.line}></div>
-      <div className={styles.diamond}></div>
-      <div className={styles.line}></div>
-    </div>
-  );
+  return <hr className="gold-divider" />;
 };
 
 export default GoldDivider;

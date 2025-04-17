@@ -1,0 +1,11 @@
+/* GoldDivider.css */
+/* src/styles/components/GoldDivider.css */
+
+.gold-divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #d4af37, #fff, #d4af37);
+    margin: 2rem auto;
+    max-width: 300px;
+  }
+  
