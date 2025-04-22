@@ -142,3 +142,14 @@
     50% { transform: translateY(-20px); }
   }
   
+  @media screen and (max-width: 768px) {
+    .consultora-hero-content {
+    margin-top: 100px;
+    }
+    
+    .consultor-container {
+      justify-content: center;
+    }
+  }
+    
+  

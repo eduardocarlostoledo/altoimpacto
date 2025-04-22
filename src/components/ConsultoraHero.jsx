@@ -4,6 +4,8 @@ import "../styles/ConsultoraHero.css";
 import StorytellingSection from "./StorytellingSection";
 import FeatureCardGrid from "./FeatureCardGrid.jsx";
 import PropertyModal from "./PropertyModal";
+import ConsultorProfile from "./ConsultorProfile";
+
 const featuresConsultora = [
   {
     image:
@@ -61,8 +63,8 @@ const ConsultoraHero = () => {
         <div className="consultora-hero-content">
           <h1>Excelencia en Consultoría Estratégica</h1>
           <p>
-            25 años liderando la transformación empresarial con soluciones
-            innovadoras en compras públicas
+          “POTENCIAMOS EQUIPOS, TRANSFORMAMOS EMPRESAS…SOMOS EL PUENTE ENTRE VOS Y TUS METAS 
+          Y LOGRAMOS QUE TU EMPRESA PROSPERE SIN LIMITES”. 
           </p>
           <button className="consultora-cta">
             <span>Descubra nuestro método</span>
@@ -84,7 +86,8 @@ const ConsultoraHero = () => {
           </button>
         </div>
       </section>
-      <FeatureCardGrid features={featuresConsultora} onCardClick={handleClick} />
+      <ConsultorProfile />
+      {/* <FeatureCardGrid features={featuresConsultora} onCardClick={handleClick} /> */}
       <div>
         <StorytellingSection
           stories={[

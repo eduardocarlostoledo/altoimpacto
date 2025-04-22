@@ -1,14 +1,15 @@
-
 // ✅ 11. Navbar.jsx actualizado con CSS puro y animación inicial GSAP
 
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { gsap } from "gsap";
 import "../styles/Navbar.css";
+import logotransparente from "../img/logotransparente.png";
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState('');
+  const [activeLink, setActiveLink] = useState("");
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,32 +20,94 @@ const Navbar = () => {
       y: -50,
       opacity: 1,
       duration: 0,
-      ease: "power3.out"
+      ease: "power3.out",
     });
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
-        <Link to="/" className="logo" onClick={() => setActiveLink('')}>
-          <span className="logoPart1">GLOBAL</span>
-          <span className="logoPart2">HOME GROUP</span>
+        <Link to="/" className="logo" onClick={() => setActiveLink("")}>
+          <img src={logotransparente} alt="Logo" className="logo-navbar" />
+          <div className="logo-texts">
+            <span className="logoPart1">GLOBAL</span>
+            <span className="logoPart2">HOME GROUP</span>
+          </div>
         </Link>
 
-        <div className="navLinks">
-          <Link to="/" className={`navLink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => setActiveLink('home')}>Inicio</Link>
-          <Link to="/constructora" className={`navLink ${activeLink === 'constructora' ? 'active' : ''}`} onClick={() => setActiveLink('constructora')}>Constructora</Link>
-          <Link to="/inmobiliaria" className={`navLink ${activeLink === 'inmobiliaria' ? 'active' : ''}`} onClick={() => setActiveLink('inmobiliaria')}>Inmobiliaria</Link>
-          <Link to="/consultora" className={`navLink ${activeLink === 'consultora' ? 'active' : ''}`} onClick={() => setActiveLink('consultora')}>Consultora</Link>
+        <button
+          className="hamburger"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Abrir menú"
+        >
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+        </button>
+
+        <div className={`navLinks ${menuOpen ? "open" : ""}`}>
+        <Link
+  to="/"
+  className={`navLink ${activeLink === "home" ? "active" : ""}`}
+  onClick={() => {
+    setActiveLink("home");
+    setMenuOpen(false);
+  }}
+>
+  Inicio
+</Link>
+
+<Link
+  to="/constructora"
+  className={`navLink ${activeLink === "constructora" ? "active" : ""}`}
+  onClick={() => {
+    setActiveLink("constructora");
+    setMenuOpen(false);
+  }}
+>
+  Constructora
+</Link>
+
+<Link
+  to="/inmobiliaria"
+  className={`navLink ${activeLink === "inmobiliaria" ? "active" : ""}`}
+  onClick={() => {
+    setActiveLink("inmobiliaria");
+    setMenuOpen(false);
+  }}
+>
+  Inmobiliaria
+</Link>
+
+<Link
+  to="/consultora"
+  className={`navLink ${activeLink === "consultora" ? "active" : ""}`}
+  onClick={() => {
+    setActiveLink("consultora");
+    setMenuOpen(false);
+  }}
+>
+  Consultora
+</Link>
+
         </div>
 
-        <button className="contactButton">
-          <span>Contacto</span>
-          <div className="buttonHoverEffect"></div>
-        </button>
+        <div>
+          <a
+            href="https://wa.me/5492216146117"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-link"
+          >
+            <button className="contactButton">
+              <span>Contacto</span>
+              <div className="buttonHoverEffect"></div>
+            </button>
+          </a>
+        </div>
       </div>
     </nav>
   );

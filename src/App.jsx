@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, lazy, Suspense } from 'react';
+import ScrollToTop from '@/components/ScrollToTop.jsx';
 import FixOpacity from '@/components/FixOpacity';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -31,6 +32,8 @@ function App() {
 
   return (
     <Router>
+            <ScrollToTop /> {/* 👈 Este es el truco */}
+
       <FixOpacity />
       <div className="app-container" style={{
         backgroundColor: '#ffffff',
