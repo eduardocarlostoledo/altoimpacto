@@ -86,7 +86,7 @@ const Home = () => {
         <div className="gold-divider"></div>
         <h2 className="section-title shadow-text">  </h2>
         <p className="section-subtitle shadow-text">
-          Soluciones integrales de alto nivel para proyectos exigentes
+          {/* Soluciones integrales de alto nivel para proyectos exigentes */}
         </p>
       </section>
 

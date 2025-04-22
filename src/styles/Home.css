@@ -1,7 +1,7 @@
 /* Home.css */
 
 .home {
-    background-color: #fff;
+    
     position: relative;
     overflow: hidden;
   }
@@ -16,7 +16,7 @@
     background-size: cover;
     z-index: 0;
     will-change: transform;
-    opacity: 0.8;
+    opacity: 1;
   }
 
   

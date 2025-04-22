@@ -3,13 +3,16 @@
 
 import React from 'react';
 import '../styles/HeroSection.css';
+import logotransparente from "../img/logotransparente.png";
+
 
 const HeroSection = () => {
   return (
     <section className="hero-section">
-      <h1 className="hero-title">Bienvenido a Global Home Group</h1>
-      <p className="hero-subtitle">Constructora e Inmobiliaria</p>
-      <p className="hero-subtitle">Consultoría Empresarial y Capital Humano</p>
+      <img src={logotransparente} alt="Logo" className="logo-hero-section shadow-text" />
+      <h1 className="hero-title">CONSTRUCTORA</h1>
+      <p className="hero-title"> INMOBILIARIA</p>
+      <p className="hero-title">CONSULTORÍA EMPRESARIAL & CAPITAL HUMANO</p>
     </section>
   );
 };
