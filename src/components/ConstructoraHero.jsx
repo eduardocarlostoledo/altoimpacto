@@ -86,11 +86,11 @@ const ConstructoraHero = () => {
 
         <div className="constructora-hero-content">
           <h1>
-            <span className="gold-gradient">Construcción</span> de Excelencia
+            <span className="gold-gradient">NOS ELIGEN</span> POR DERRIBAR LIMITES…
           </h1>
 
           <p className="subtitle">
-            “NOS ELIGEN POR DERRIBAR LIMITES…PORQUE CONVERTIMOS TUS SUEÑOS EN
+            PORQUE CONVERTIMOS TUS SUEÑOS EN
             REALIDAD, HACEMOS DE CADA VIVIENDA SEA EL COMIENZO DE UNA GRAN
             HISTORIA…
           </p>

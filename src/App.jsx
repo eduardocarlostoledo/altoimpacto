@@ -25,9 +25,9 @@ function App() {
       nullTargetWarn: false,
     });
 
-    // Configuración inicial de estilos
-    document.body.style.backgroundColor = '#ffffff';
-    document.body.style.color = '#333333';
+    // // Configuración inicial de estilos
+    // document.body.style.backgroundColor = '#ffffff';
+    // document.body.style.color = '#333333';
   }, []);
 
   return (

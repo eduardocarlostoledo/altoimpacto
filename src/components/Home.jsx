@@ -73,111 +73,115 @@ const Home = () => {
   const handleClick = (property) => {
     PropertyModal({ property });
   };
-  
 
   return (
     <div className="home">
       <div className="home-hero-bg"></div>
-      
-      <HeroSection />
-      
-      
-      <section className="about-section home-section">
-        <div className="gold-divider"></div>
-        <h2 className="section-title shadow-text">  </h2>
-        <p className="section-subtitle shadow-text">
-          {/* Soluciones integrales de alto nivel para proyectos exigentes */}
-        </p>
+  
+      {/* Hero principal */}
+      <section className="hero-section">
+        <HeroSection />
       </section>
-
-      <div style={{ marginTop: "2rem" }}> 
-        <FeatureCardGrid features={featuresServiciosGlobales}   onCardClick={handleClick} />
-
+  
+      {/* Cards de servicios estratégicos */}
+      <section className="home-features-cards">
+        <FeatureCardGrid
         
-
+          features={featuresServiciosGlobales}
+          onCardClick={handleClick}
+        />
+      </section>
+  
+      {/* Misión, visión y valores */}
+      <section className="home-section">
         <StorytellingSection
           stories={[
             {
               img: "https://tickelia.com/wp-content/uploads/2023/09/vision-empresarial.jpg.webp",
-              text: "Nuestra Visión: Convertirnos en un grupo empresarial Líder y Referente en soluciones integrales que transformen espacios, optimicen negocios y conecten personas con su hogar ideal, creando un impacto positivo en la vida de las comunidades. Nos vemos de aca a 5 años con una Compañía Altamente rentable y creciendo a través de sucursales o franquicias con unas 50 a 70 construcciones mensuales.",
+              text: `Visión: 
+Convertirnos en un grupo empresarial Líder y Referente en soluciones integrales que 
+transformen espacios, optimicen negocios y conecten personas con su hogar ideal, 
+creando un impacto positivo en la vida de las comunidades. Nos vemos de aca a 5 años 
+con una Compañía Altamente rentable y creciendo a través de sucursales o franquicias 
+con unas 50 a 70 construcciones mensuales.`
             },
             {
               img: mission,
-              text: `Nuestra Misión: Ofrecer servicios de construcción, Consultoría empresarial, Recursos Humanos, y gestión 
-  inmobiliaria con excelencia, innovación y enfoque humano. Acompañar a nuestros clientes 
-  en cada etapa, desde diseñar espacios únicos y brindar asesoría estratégica, hasta 
-  encontrar el inmueble que mejor se ajuste a sus necesidades. Caminando a la par del 
-  ecosistema, protegiéndolo y mimandolo.`,
-            },
-            {
-              img: "https://www.vietnamteambuilding.net/en/wp-content/uploads/2021/07/Team-building-forcast.jpg",
-              text: ` Trabajo en equipo: Fomentar la colaboración interna y con nuestros clientes como clave 
-  del éxito. `,
-            },
-            {
-              img: "https://d3t4nwcgmfrp9x.cloudfront.net/upload/etica-empresarial-2024-principios-clave-y-consejos-para-su-implementacion-643x342.jpg",
-              text: `- Integridad: Actuar con transparencia, ética y profesionalismo en cada relación y en cada 
-  acción.`,
+              text: `Misión: 
+Ofrecer servicios de construcción, Consultoría empresarial, Recursos Humanos, y gestión 
+inmobiliaria con excelencia, innovación y enfoque humano. Acompañar a nuestros clientes 
+en cada etapa, desde diseñar espacios únicos y brindar asesoría estratégica, hasta 
+encontrar el inmueble que mejor se ajuste a sus necesidades. Caminando a la par del 
+ecosistema, protegiéndolo y mimandolo. `
             },
             {
               img: "https://www.fundacionbankinter.org/wp-content/uploads/2021/07/-que-es-la-innovacion-definicion-y-caracteristicas.jpg",
-              text: `- Innovación: Buscar constantemente nuevas ideas y tecnologías para mejorar nuestros 
-  servicios.  -`,
+              text: `Innovación: Buscar constantemente nuevas ideas y tecnologías para mejorar nuestros servicios.`
             },
             {
               img: "https://sandiario.com/cdn/shop/articles/blog-ver-brujula-0.webp?v=1721125647&width=940",
               text: `Excelencia: Compromiso con la calidad en cada detalle de nuestros proyectos y 
-  procesos. `,
+procesos. `
             },
             {
-              img: "https://solodinero.com/wp-content/uploads/sites/8/2024/12/Sostenibilidad.jpg?resize=1316,740&quality=80",
-              text: `- Sostenibilidad: Promover prácticas responsables que respeten el medio ambiente y 
-  contribuyan al desarrollo de comunidades sostenibles.`,
+              img: "https://d3t4nwcgmfrp9x.cloudfront.net/upload/etica-empresarial-2024-principios-clave-y-consejos-para-su-implementacion-643x342.jpg",
+              text: ` Integridad: Actuar con transparencia, ética y profesionalismo en cada relación y en cada 
+acción. `
             },
+            {
+              img: "https://www.vietnamteambuilding.net/en/wp-content/uploads/2021/07/Team-building-forcast.jpg",
+              text: `Trabajo en equipo: Fomentar la colaboración interna y con nuestros clientes como clave 
+del éxito. `
+            },
+     
+      
+        
+            {
+              img: "https://solodinero.com/wp-content/uploads/sites/8/2024/12/Sostenibilidad.jpg?resize=1316,740&quality=80",
+              text: `Sostenibilidad: Promover prácticas responsables que respeten el medio ambiente y 
+contribuyan al desarrollo de comunidades sostenibles. `
+            }
           ]}
           title="Nuestra Misión y Visión"
         />
-      </div>
-
-      <section></section>
-
+      </section>
+  
+      {/* Llamado a la acción */}
       <section className="cta-section home-section">
         <div className="cta-content">
           <h2 className="shadow-text">
             ¿Listo para comenzar su próximo proyecto de excelencia?
           </h2>
-          
           <a
-  href="https://wa.me/5492216146117"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="cta-link"
->
-  <button className="cta-button">
-    <span>Contactar Asesor</span>
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M5 12H19M19 12L12 5M19 12L12 19"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </button>
-</a>
-
-          
+            href="https://wa.me/5492216146117"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-link"
+          >
+            <button className="cta-button">
+              <span>Contactar Asesor</span>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 12H19M19 12L12 5M19 12L12 19"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </a>
         </div>
       </section>
     </div>
   );
+  
 };
 
 export default Home;

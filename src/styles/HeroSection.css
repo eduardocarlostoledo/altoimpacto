@@ -3,11 +3,11 @@
 /* src/styles/components/HeroSection.css */
 
 .hero-section {
-    padding: 6rem 2rem;
-    
+    /* padding: 6rem 2rem;
+    margin-top: 50px; */
     
     text-align: center;
-    margin-top: 50px;
+    
   }
   
   .hero-title {
@@ -25,8 +25,8 @@
   }
 
   .logo-hero-section{
-    width: 100%;
-    ;
+    width: 30%;
+    
   }
 
   

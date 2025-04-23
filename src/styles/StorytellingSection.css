@@ -172,11 +172,19 @@
   .storytelling-block p {
     font-size: 1.1rem;
     max-width: 800px;
-    color: #444;
-    font-family: 'Montserrat', sans-serif;
+    color:var(--color-black);
+    font-family: 'Arial Narrow Bold', sans-serif
   }
   
   .storytelling-block:hover {
     transform: translateY(-8px);
   }
+  
+  @media (max-width: 768px) {
+    
+    .storytelling-section h2 {
+      font-size: 2.5rem !important;
+    
+  }
+}
   

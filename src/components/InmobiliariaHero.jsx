@@ -45,7 +45,7 @@ const featuresPropiedadesEnVenta = [
 const featuresInmobiliaria = [
   {
     image: "https://www.gilmar.es/wp-content/uploads/2022/06/vender-vivienda-de-lujo.jpg",
-    title: "Alquileres Premium",
+    title: "Gestión de Inmuebles",
     description: "Gestión de propiedades de alto standing",
   },
   {
@@ -119,11 +119,11 @@ const InmobiliariaHero = () => {
         <div className="inmobiliaria-hero-overlay"></div>
         <div className="inmobiliaria-hero-content">
           <h1>
-            <span className="highlight">Excelencia</span> en el Mercado
-            Inmobiliario
+            <span className="highlight">NOSOTROS </span> NO ENCONTRAMOS TU CASA
           </h1>
           <p className="subtitle">
-            Soluciones de alto valor para propiedades exclusivas
+          TE ENTREGAMOS EL LUGAR DONDE CONSTRUIRAS TUS 
+          SUEÑOS Y METAS MAS DESEADAS”  
           </p>
         </div>
       </section>
@@ -138,29 +138,30 @@ const InmobiliariaHero = () => {
           stories={[
             {
               img: "https://www.gilmar.es/wp-content/uploads/2022/06/vender-vivienda-de-lujo.jpg",
-              text: "Gestionamos propiedades de lujo, asegurando un servicio personalizado y atención al detalle.",
+              text: `Gestionamos Inmuebbles: CASAS, DEPARTAMENTOS, DUPLEX, LOCALES, FONDOS DE COMERCIO, 
+GALPONES, LOCALES, OFICINAS, EDIFICIOS, TERRENOS, CAMPOS, FRANQUICIAS, PATENTES, COCHERAS, PROPIEDADES COMERCIALES `,
             },
 
             {
               img: "https://fotos.perfil.com/2025/01/16/trim/1280/720/aviglion-1949103.jpg",
-              text: "Compramos y vendemos Propiedades a estrenar, diseñadas para satisfacer las expectativas más altas.",
+              text: "VENTA, ALQUILER, ALQUILER TEMPORAL. ",
             },
             {
               img: "https://static.wixstatic.com/media/0483a9_5ef10e44856644e387b0ef764c490a8c~mv2.jpg/v1/fill/w_980,h_676,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0483a9_5ef10e44856644e387b0ef764c490a8c~mv2.jpg",
-              text: "Observamos el mercado inmobiliario en constante evolución, donde la innovación y la sostenibilidad son clave.",
+              text: "LOCALIDAD.",
             },
 
             {
               img: "https://comercioyjusticia.info/wp-content/uploads/2025/04/Corredor-inmobiliario.jpg",
-              text: "Analizamos tendencias del mercado para ofrecer soluciones adaptadas a las necesidades de nuestros clientes.",
+              text: "PRECIO.",
             },
 
             {
               img: "https://infonegocios.info/content/images/2025/04/09/537093/Prestamoshipotecarios-banco-Ciudad.jpg",
-              text: "Buscamos la mejor oportunidad de inversión para nuestros clientes, asegurando rentabilidad y seguridad.",
+              text: "MENOR PRECIO - MAYOR PRECIO.",
             },
           ]}
-          title="NOSOTROS NO ENCONTRAMOS TU CASA,  TE ENTREGAMOS EL LUGAR DONDE CONSTRUIRAS TUS SUEÑOS Y METAS MAS DESEADAS"
+          title="Excelencia en el Mercado Inmobiliario, Soluciones de alto valor para propiedades exclusivas"
         />
 
         

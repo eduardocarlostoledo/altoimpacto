@@ -5,7 +5,7 @@
     position: relative;
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url('https://bradfordjacobs.com/wp-content/uploads/2023/06/Business-Consulting-Services.png') no-repeat center center;
+      url('../img/consultora.jpg') no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -152,4 +152,20 @@
     }
   }
     
+  
+  @media (max-width: 768px) {
+    .consultora-hero-content h1 {
+      font-size: 2.5rem;
+    }
+    .storytelling-section h2 {
+      font-size: 2.5rem;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+    }
+    .consultora-features {
+      grid-template-columns: 1fr;
+      margin-top: 2rem;
+    }
+  }
   
