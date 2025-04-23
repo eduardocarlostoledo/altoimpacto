@@ -20,7 +20,7 @@ const StorytellingSection = ({ stories, title }) => {
               transition={{ duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <img src={block.img} alt="Story Block" />
+              <img src={block.img} alt="Historia Inmobiliaria" loading="lazy"/>
               <p>{block.text}</p>
             </motion.div>
           ))}

@@ -7,6 +7,9 @@ import StorytellingSection from "./StorytellingSection";
 import { div } from "framer-motion/client";
 import FeatureCardGrid from "./FeatureCardGrid.jsx";
 import PropertyModal from "./PropertyModal";
+import inmobiliariaft1 from "../img/inmobiliariahero.jpg";
+import inmobiliariaf2 from "../img/inmobiliariahero2.jpg";
+import inmobliariaft3 from "../img/inmobliariahero3.jpg";
 
 
 const featuresPropiedadesEnVenta = [
@@ -44,17 +47,17 @@ const featuresPropiedadesEnVenta = [
 
 const featuresInmobiliaria = [
   {
-    image: "https://www.gilmar.es/wp-content/uploads/2022/06/vender-vivienda-de-lujo.jpg",
+    image: inmobiliariaft1,
     title: "Gestión de Inmuebles",
     description: "Gestión de propiedades de alto standing",
   },
   {
-    image: "https://andigital.com.ar/uploads/ckeditor/2024/05/20240527111158_foto-interior-1.jpg",
+    image: inmobiliariaf2,
     title: "Ventas & Tasaciones",
     description: "Valoraciones precisas con tecnología de vanguardia",
   },
   {
-    image: "https://img.freepik.com/foto-gratis/tiler-trabajando-renovacion-apartamento_23-2149278557.jpg?semt=ais_hybrid&w=740",
+    image: inmobliariaft3,
     title: "Puesta a Punto",
     description: "Preparación integral para maximizar valor",
   },

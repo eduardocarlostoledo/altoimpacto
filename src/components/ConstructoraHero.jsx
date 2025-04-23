@@ -6,23 +6,36 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/ConstructoraHero.css";
 import StorytellingSection from "./StorytellingSection";
 import PropertyModal from "./PropertyModal";
-
+import constructorahero1 from "../img/constructorahero1.jpg";
+import constructorahero2 from "../img/constructorahero2.webp";
+import constructorahero3 from "../img/constructorahero3.jpg";
 import FeatureCardGrid from './FeatureCardGrid';
+import constructorast1 from "../img/constructorast1.jpeg";
+import constructorast2 from "../img/constructorast2.webp";
+import constructorast3 from "../img/constructorast3.jpg";
+import constructorast4 from "../img/constructorast4.jpg";
+
+
+
+
+
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 const featuresConstructora = [
   {
-    image: "https://i0.wp.com/stillframerender.com/wp-content/uploads/2023/04/Carlos-Aguilar-G-Fachada-Principal-copia.png?ssl=1",
+    image: constructorahero1,
     title: "Diseño Arquitectónico",
     description: "Soluciones innovadoras con los mejores estándares internacionales",
   },
   {
-    image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRDHM8N2oldaMJ66FnA212Vsb1VoHTdohzYdAn_d0zSPUb7U4boBEQ5rnohJ4jQcJmFgSOsnUQXKVxjon955Nm-AUhBWbLBRL6ih1sbPw",
+    image: constructorahero2,
     title: "Gestión de Proyectos",
     description: "Control total desde la concepción hasta la entrega final",
   },
   {
-    image: "https://www.esan.edu.pe/images/blog/2016/03/10/inmobiliaria-principal.jpg",
+    image: constructorahero3,
     title: "Desarrollos Inmobiliarios",
     description: "Creación de valor a través de ubicaciones estratégicas",
   },
@@ -107,21 +120,21 @@ const ConstructoraHero = () => {
         <StorytellingSection
           stories={[
             {
-              img: "https://em4ftgkgsyf.exactdn.com/wp-content/uploads/2021/11/3a.jpeg?strip=all&lossy=1&ssl=1",
+              img: constructorast1,
               text: "Diseñamos y construimos viviendas de alta gama que fusionan innovación arquitectónica con materiales de excelencia, creando espacios únicos y rentables.",
             },
             {
-              img: "https://neuquenalinstante-s3.cdn.net.ar/s3i233/2023/09/neuquenalinstante2/images/23/40/234085_e0d5d74911ea4d06118bfea6fd3658198564449fd15870d9eba8f7cbf3c63f70/md.webp",
+              img: constructorast2,
               text: "Ejecutamos desarrollos inmobiliarios estratégicos con un enfoque integral que asegura eficiencia constructiva y proyección de valor en el tiempo.",
             },
            
             {
-              img: "https://cms.evangelicodigital.com/upload/imagenes/5ef5d56838394_JosueIsaiRamosFigueroaconstruyendoG.jpg",
+              img: constructorast3,
               text: "Construimos espacios que no solo cumplen con los estándares más altos de calidad, sino que también reflejan la esencia y el estilo de vida de nuestros clientes.",
               
             },
             {
-              img: "https://www.esan.edu.pe/images/blog/2016/03/10/inmobiliaria-principal.jpg",
+              img: constructorast4,
               text: "Desarrollamos proyectos inmobiliarios que transforman espacios y crean valor a largo plazo.",
             },
 

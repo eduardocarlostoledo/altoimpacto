@@ -7,6 +7,17 @@ import StorytellingSection from "./StorytellingSection";
 import mission from "../img/mision.jpg";
 import PropertyModal from "./PropertyModal";
 import FeatureCardGrid from "./FeatureCardGrid.jsx";
+import homevision from "../img/home-vision.webp";
+import hometrabajoequipo from "../img/home-trabajo-equipo.jpg";
+import homeintegridad from "../img/home-integridad.jpg";
+import homeinnovacion from "../img/home-innovacion.jpg";
+import homeexcelencia from "../img/home-excelencia.jpeg";
+import homesostenibilidad from "../img/home-sostenibilidad.jpg";
+
+
+
+
+
 
 const featuresServiciosGlobales = [
   {
@@ -75,6 +86,7 @@ const Home = () => {
   };
 
   return (
+    
     <div className="home">
       <div className="home-hero-bg"></div>
   
@@ -97,7 +109,7 @@ const Home = () => {
         <StorytellingSection
           stories={[
             {
-              img: "https://tickelia.com/wp-content/uploads/2023/09/vision-empresarial.jpg.webp",
+              img: homevision,
               text: `Visión: 
 Convertirnos en un grupo empresarial Líder y Referente en soluciones integrales que 
 transformen espacios, optimicen negocios y conecten personas con su hogar ideal, 
@@ -115,21 +127,21 @@ encontrar el inmueble que mejor se ajuste a sus necesidades. Caminando a la par 
 ecosistema, protegiéndolo y mimandolo. `
             },
             {
-              img: "https://www.fundacionbankinter.org/wp-content/uploads/2021/07/-que-es-la-innovacion-definicion-y-caracteristicas.jpg",
+              img: homeinnovacion,
               text: `Innovación: Buscar constantemente nuevas ideas y tecnologías para mejorar nuestros servicios.`
             },
             {
-              img: "https://sandiario.com/cdn/shop/articles/blog-ver-brujula-0.webp?v=1721125647&width=940",
+              img: homeexcelencia,
               text: `Excelencia: Compromiso con la calidad en cada detalle de nuestros proyectos y 
 procesos. `
             },
             {
-              img: "https://d3t4nwcgmfrp9x.cloudfront.net/upload/etica-empresarial-2024-principios-clave-y-consejos-para-su-implementacion-643x342.jpg",
+              img: homeintegridad,
               text: ` Integridad: Actuar con transparencia, ética y profesionalismo en cada relación y en cada 
 acción. `
             },
             {
-              img: "https://www.vietnamteambuilding.net/en/wp-content/uploads/2021/07/Team-building-forcast.jpg",
+              img: hometrabajoequipo,
               text: `Trabajo en equipo: Fomentar la colaboración interna y con nuestros clientes como clave 
 del éxito. `
             },
@@ -137,7 +149,7 @@ del éxito. `
       
         
             {
-              img: "https://solodinero.com/wp-content/uploads/sites/8/2024/12/Sostenibilidad.jpg?resize=1316,740&quality=80",
+              img: homesostenibilidad,
               text: `Sostenibilidad: Promover prácticas responsables que respeten el medio ambiente y 
 contribuyan al desarrollo de comunidades sostenibles. `
             }
