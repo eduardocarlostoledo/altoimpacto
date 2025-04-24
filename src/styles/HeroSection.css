@@ -27,7 +27,6 @@
   margin-bottom: 2rem;
 }
 
-/* Disminuir progresivamente el tamaño en pantallas chicas */
 @media screen and (max-width: 650px) {
   .hero-title {
     font-size: 2rem;
