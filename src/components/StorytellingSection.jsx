@@ -6,10 +6,10 @@ import '../styles/StorytellingSection.css';
 
   
 
-const StorytellingSection = ({ stories, title }) => {
+const StorytellingSection = ({ stories, valores }) => {
     return (
       <section className="storytelling-section">
-        <h2>{title}</h2>
+        <h2>{valores}</h2>
         <div className="storytelling-track">
           {stories.map((block, index) => (
             <motion.div
@@ -20,6 +20,7 @@ const StorytellingSection = ({ stories, title }) => {
               transition={{ duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true, amount: 0.3 }}
             >
+              <h2>{block.title}</h2>
               <img src={block.img} alt="Historia Inmobiliaria" loading="lazy"/>
               <p>{block.text}</p>
             </motion.div>

@@ -13,6 +13,9 @@ import homeintegridad from "../img/home-integridad.jpg";
 import homeinnovacion from "../img/home-innovacion.jpg";
 import homeexcelencia from "../img/home-excelencia.jpeg";
 import homesostenibilidad from "../img/home-sostenibilidad.jpg";
+import homebaner1 from "../img/home-baner1.jpg";
+import homebaner2 from "../img/home-baner2.jpeg"; 
+import homebaner3 from "../img/home-baner3.jpg";
 
 
 
@@ -22,24 +25,30 @@ import homesostenibilidad from "../img/home-sostenibilidad.jpg";
 const featuresServiciosGlobales = [
   {
     image:
-      "https://www.dynamicgc.es/wp-content/uploads/2019/12/Consultoria-Estrategica.jpg",
-    title: "Consultoría Estratégica",
-    description:
-      "25 años de experiencia en compras públicas y desarrollo empresarial",
+      homebaner3,
+    title: "Construcción Premium",
+    description: "Realizamos proyectos arquitectónicos de vanguardia",
+    link: "/constructora"
   },
+  
   {
     image:
-      "https://media.licdn.com/dms/image/v2/D5612AQEPooJ4RBntvw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1688283596933?e=2147483647&v=beta&t=Ej7BULTYpxP1O2dRo_NJuYf4Uyw8YXVyf_78JRiGRbI",
+      homebaner2,
     title: "Desarrollos Inmobiliarios",
     description:
       "Propiedades exclusivas con los más altos estándares de calidad",
+      link: "/inmobiliaria"
   },
+
   {
     image:
-      "https://resizer.glanacion.com/resizer/v2/la-construccion-de-viviendas-premium-en-barrios-BSK7HLXQIRDR5O6FZLXHD32MZA.jpg?auth=0dbcee701928e28d2d4ea793f8b07e5a22fdefd90fd8b5735ac441872a576fb5&width=1200&quality=70&smart=false&height=800",
-    title: "Construcción Premium",
-    description: "Realizamos proyectos arquitectónicos de vanguardia",
+      homebaner1,
+    title: "Consultoría Estratégica",
+    description:
+      "25 años de experiencia en compras públicas y desarrollo empresarial",
+      link: "/consultora"
   },
+
 ];
 
 gsap.registerPlugin(ScrollTrigger);
@@ -109,6 +118,7 @@ const Home = () => {
         <StorytellingSection
           stories={[
             {
+              title: "Visión",
               img: homevision,
               text: `Visión: 
 Convertirnos en un grupo empresarial Líder y Referente en soluciones integrales que 
@@ -118,6 +128,7 @@ con una Compañía Altamente rentable y creciendo a través de sucursales o fran
 con unas 50 a 70 construcciones mensuales.`
             },
             {
+              title: "Mision",
               img: mission,
               text: `Misión: 
 Ofrecer servicios de construcción, Consultoría empresarial, Recursos Humanos, y gestión 
@@ -127,20 +138,24 @@ encontrar el inmueble que mejor se ajuste a sus necesidades. Caminando a la par 
 ecosistema, protegiéndolo y mimandolo. `
             },
             {
+              title: "Innovación",
               img: homeinnovacion,
               text: `Innovación: Buscar constantemente nuevas ideas y tecnologías para mejorar nuestros servicios.`
             },
             {
+              title: "Excelencia",
               img: homeexcelencia,
               text: `Excelencia: Compromiso con la calidad en cada detalle de nuestros proyectos y 
 procesos. `
             },
             {
+              title: "Integridad",
               img: homeintegridad,
               text: ` Integridad: Actuar con transparencia, ética y profesionalismo en cada relación y en cada 
 acción. `
             },
             {
+              title: "Trabajo en equipo",
               img: hometrabajoequipo,
               text: `Trabajo en equipo: Fomentar la colaboración interna y con nuestros clientes como clave 
 del éxito. `
@@ -149,12 +164,15 @@ del éxito. `
       
         
             {
+              title: "Sostenibilidad",
               img: homesostenibilidad,
               text: `Sostenibilidad: Promover prácticas responsables que respeten el medio ambiente y 
 contribuyan al desarrollo de comunidades sostenibles. `
             }
+            
           ]}
-          title="Nuestra Misión y Visión"
+          valores="Nuestros Valores"            
+          
         />
       </section>
   
