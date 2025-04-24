@@ -8,8 +8,8 @@ import { div } from "framer-motion/client";
 import FeatureCardGrid from "./FeatureCardGrid.jsx";
 import PropertyModal from "./PropertyModal";
 import inmobiliariaft1 from "../img/inmobiliariahero.jpg";
-import inmobiliariaf2 from "../img/inmobiliariahero2.jpg";
-import inmobliariaft3 from "../img/inmobliariahero3.jpg";
+import inmobiliariaft2 from "../img/inmobiliariahero2.jpg";
+import inmobiliariaft3 from "../img/inmobiliariahero3.jpg";
 
 
 const featuresPropiedadesEnVenta = [
@@ -52,12 +52,12 @@ const featuresInmobiliaria = [
     description: "Gestión de propiedades de alto standing",
   },
   {
-    image: inmobiliariaf2,
+    image: inmobiliariaft2,
     title: "Ventas & Tasaciones",
     description: "Valoraciones precisas con tecnología de vanguardia",
   },
   {
-    image: inmobliariaft3,
+    image: inmobiliariaft3,
     title: "Puesta a Punto",
     description: "Preparación integral para maximizar valor",
   },
