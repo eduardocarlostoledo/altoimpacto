@@ -97,7 +97,7 @@ const Navbar = () => {
 
         <div>
           <a
-            href="https://wa.me/5492216146117"
+            href="/contacto"
             target="_blank"
             rel="noopener noreferrer"
             className="cta-link"

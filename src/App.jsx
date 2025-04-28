@@ -7,6 +7,7 @@ import FixOpacity from '@/components/FixOpacity';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import Contact from './components/contact.jsx';
 
 // Configura GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -16,6 +17,7 @@ const Home = lazy(() => import('@/components/Home'));
 const ConsultoraHero = lazy(() => import('@/components/ConsultoraHero.jsx'));
 const ConstructoraHero = lazy(() => import('@/components/ConstructoraHero.jsx'));
 const InmobiliariaHero = lazy(() => import('@/components/InmobiliariaHero.jsx'));
+
 
 function App() {
   useEffect(() => {
@@ -53,6 +55,7 @@ function App() {
               <Route path="/consultora" element={<ConsultoraHero />} />
               <Route path="/constructora" element={<ConstructoraHero />} />
               <Route path="/inmobiliaria" element={<InmobiliariaHero />} />
+              <Route path="/contacto" element={<Contact />} />
             </Routes>
           </Suspense>
         </main>

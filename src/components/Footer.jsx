@@ -14,17 +14,20 @@ const Footer = () => {
           <div className="footer-column">
             <h4>Áreas</h4>
             <ul>
-              <li><a href="/consultora">Consultora</a></li>
+              
               <li><a href="/constructora">Constructora</a></li>
               <li><a href="/inmobiliaria">Inmobiliaria</a></li>
+              <li><a href="/consultora">Consultora</a></li>
             </ul>
           </div>
           <div className="footer-column">
             <h4>Contacto</h4>
+
+
             <ul>
-              <li><a href="mailto:info@consultora.com">info@consultora.com</a></li>
-              <li><a href="mailto:info@constructora.com">info@constructora.com</a></li>
-              <li><a href="mailto:info@inmobiliaria.com">info@inmobiliaria.com</a></li>
+              <li><a href="mailto:constructora@globalhomegroup.com.ar">constructora@globalhomegroup.com.ar</a></li>
+              <li><a href="mailto:inmobiliaria@globalhomegroup.com.ar">inmobiliaria@globalhomegroup.com.ar</a></li>
+              <li><a href="mailto:consultora@globalhomegroup.com.ar">consultora@globalhomegroup.com.ar</a></li>
             </ul>
           </div>
         </div>
