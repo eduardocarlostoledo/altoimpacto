@@ -1,12 +1,22 @@
-// ✅ Admin.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/Admin.css';
+const API = import.meta.env.VITE_API_URL;
+
+const tipos = [
+  'CASAS', 'DEPARTAMENTOS', 'DUPLEX', 'LOCALES',
+  'FONDOS DE COMERCIO', 'GALPONES', 'OFICINAS',
+  'EDIFICIOS', 'TERRENOS', 'CAMPOS', 'FRANQUICIAS',
+  'PATENTES', 'COCHERAS', 'PROPIEDADES COMERCIALES'
+];
+
+const operaciones = ['VENTA', 'ALQUILER', 'ALQUILER TEMPORAL'];
 
 const Admin = ({ propiedadEdit, onChange }) => {
   const [formData, setFormData] = useState({
     titulo: '',
     tipo: '',
+    operacion: '',
     zona: '',
     descripcion: '',
     precio: ''
@@ -20,6 +30,7 @@ const Admin = ({ propiedadEdit, onChange }) => {
       setFormData({
         titulo: propiedadEdit.titulo || '',
         tipo: propiedadEdit.tipo || '',
+        operacion: propiedadEdit.operacion || '',
         zona: propiedadEdit.zona || '',
         descripcion: propiedadEdit.descripcion || '',
         precio: propiedadEdit.precio || ''
@@ -46,16 +57,18 @@ const Admin = ({ propiedadEdit, onChange }) => {
     try {
       setLoading(true);
 
+      
+
       const endpoint = propiedadEdit
-        ? `http://localhost:3001/api/propiedades/${propiedadEdit.id}`
-        : `http://localhost:3001/api/propiedades`;
+        ? `${API}/api/propiedades/${propiedadEdit.id}`
+        : `${API}/api/propiedades`;
 
       const method = propiedadEdit ? 'put' : 'post';
 
       await axios[method](endpoint, data);
 
       setMensaje(propiedadEdit ? 'Propiedad actualizada' : 'Propiedad creada correctamente');
-      setFormData({ titulo: '', tipo: '', zona: '', descripcion: '', precio: '' });
+      setFormData({ titulo: '', tipo: '', operacion: '', zona: '', descripcion: '', precio: '' });
       setImagen(null);
       if (onChange) onChange();
     } catch (error) {
@@ -71,8 +84,22 @@ const Admin = ({ propiedadEdit, onChange }) => {
       <h2>{propiedadEdit ? 'Editar propiedad' : 'Cargar nueva propiedad'}</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <input type="text" name="titulo" placeholder="Título" value={formData.titulo} onChange={handleChange} required />
-        <input type="text" name="tipo" placeholder="Tipo (casa, depto...)" value={formData.tipo} onChange={handleChange} required />
-        <input type="text" name="zona" placeholder="Zona (centro, oeste...)" value={formData.zona} onChange={handleChange} required />
+
+        <select className="propiedades-filtros" name="tipo" value={formData.tipo} onChange={handleChange} required>
+          <option value="">Seleccione tipo</option>
+          {tipos.map(tipo => (
+            <option key={tipo} value={tipo}>{tipo}</option>
+          ))}
+        </select>
+
+        <select className="propiedades-filtros" name="operacion" value={formData.operacion} onChange={handleChange} required>
+          <option value="">Seleccione operación</option>
+          {operaciones.map(op => (
+            <option key={op} value={op}>{op}</option>
+          ))}
+        </select>
+
+        <input type="text" name="zona" placeholder="Localidad" value={formData.zona} onChange={handleChange} required />
         <textarea name="descripcion" placeholder="Descripción" value={formData.descripcion} onChange={handleChange}></textarea>
         <input type="number" name="precio" placeholder="Precio (opcional)" value={formData.precio} onChange={handleChange} />
         <input type="file" accept="image/*" onChange={handleFileChange} />

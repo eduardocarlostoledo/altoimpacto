@@ -8,6 +8,7 @@ import inmobiliariaft1 from "../img/inmobiliariahero.jpg";
 import inmobiliariaft2 from "../img/inmobiliariahero2.jpg";
 import inmobiliariaft3 from "../img/inmobiliariahero3.jpg";
 import PropiedadesPublic from "./PropiedadesPublic.jsx";
+import Propiedades from "./Propiedades.jsx";
 import PropertyModal from "./PropertyModal";
 
 
@@ -103,12 +104,16 @@ const InmobiliariaHero = () => {
       {/* Secciones Comerciales */}
       <FeatureCardGrid features={featuresInmobiliaria} onCardClick={handleClick} />
 
-      <FeatureCardGrid features={featuresServiciosPrestados} onCardClick={handleClick} />
+      
 
+      <Propiedades onCardClick={handlePropertyClick} />
       {/* Listado dinámico de Propiedades en Venta */}
-      <PropiedadesPublic onCardClick={handlePropertyClick} />
+      {/* <PropiedadesPublic onCardClick={handlePropertyClick} /> */}
 
       {/* Storytelling */}
+
+      
+
       <StorytellingSection
         stories={[
           {
@@ -134,6 +139,8 @@ const InmobiliariaHero = () => {
         ]}
         title="Excelencia en el Mercado Inmobiliario, Soluciones de alto valor para propiedades exclusivas"
       />
+
+<FeatureCardGrid features={featuresServiciosPrestados} onCardClick={handleClick} />
     </div>
   );
 };

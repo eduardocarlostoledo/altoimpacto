@@ -26,7 +26,7 @@
   
   .shadow-text {
     color: #fff;
-    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.65);
+    text-shadow: 2px 2px 1px rgba(199, 163, 163, 0.65);
     position: relative;
     z-index: 2;
   }

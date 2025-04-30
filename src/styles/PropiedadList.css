@@ -1,49 +1,84 @@
 .prop-list-container {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 1rem;
-    font-family: Arial, sans-serif;
-  }
+  text-align: center;
+  ;
+  max-width: 1000px;
+  margin: 7rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.prop-list-container h2 {
+  margin-bottom: 1rem;
+  color: #263d23;
+}
+
+.filtros-admin {
   
-  .prop-list-container h2 {
-    margin-bottom: 1rem;
-    color: #263d23;
-  }
   
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-  }
-  
-  th, td {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #e2e2ee;
-  }
-  
-  button {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 4px;
-    margin: 0 0.2rem;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    opacity: 0.85;
-  }
-  
-  .delete-btn {
-    background-color: #c0392b;
-    color: white;
-  }
-  
-  .delete-btn:hover {
-    background-color: #a93226;
-  }
-  
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filtro-select, .filtro-input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  min-width: 200px;
+  background-color: #f8f8f8;
+  transition: border-color 0.3s;
+}
+
+.filtro-select:focus, .filtro-input:focus {
+  outline: none;
+  border-color: #263d23;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+th {
+  background-color: #e2e2ee;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  margin: 0 0.2rem;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.delete-btn {
+  background-color: #c0392b;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #a93226;
+}
+
+.grupo-operacion {
+  margin-top: 2rem;
+}
+
+.grupo-operacion h3 {
+  color: #101629;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid #263d23;
+  padding-left: 0.6rem;
+}
