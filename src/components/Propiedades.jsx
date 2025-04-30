@@ -26,11 +26,24 @@ const Propiedades = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const scrollToSection = () => {
-    if (sectionRef.current) {
-      window.scrollTo({ top: sectionRef.current.offsetTop, behavior: "smooth" });
+  // ✅ Al montar el componente: IR AL HERO (solo al principio)
+useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}, []);
+
+  
+  useEffect(() => {
+    fetchPropiedades();
+  }, [filtros, page]);
+  
+  const scrollToTopOfProps = () => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+  
+  
+
 
   const fetchPropiedades = async () => {
     try {
@@ -55,7 +68,7 @@ const Propiedades = () => {
         setOperacionesUnicas(res.data.filtros.operacion);
       }
 
-      scrollToSection();
+      
     } catch (err) {
       console.error("Error al obtener propiedades", err);
     } finally {
@@ -71,14 +84,15 @@ const Propiedades = () => {
     const { name, value } = e.target;
     setFiltros((prev) => ({ ...prev, [name]: value }));
     setPage(1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollToTopOfProps();
   };
 
-  const handleResetFilters = () => {
-    setFiltros({ tipo: "", operacion: "", zona: "", precioMax: "", precioMin: "" });
-    setPage(1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+// ✅ Botón limpiar filtros
+const handleResetFilters = () => {
+  setFiltros({ tipo: "", operacion: "", zona: "", precioMax: "", precioMin: "" });
+  setPage(1);
+  scrollToTopOfProps();
+};
 
   const propiedadesAgrupadas = tiposOperacion.map((op) => ({
     operacion: op,
@@ -134,45 +148,60 @@ const Propiedades = () => {
       </div>
 
       {loading ? (
-        <div className="spinner"></div>
-      ) : (
-        propiedadesAgrupadas.map(({ operacion, propiedades }) => (
-          <div key={operacion} className="grupo-operacion">
-            <h3 className="titulo-operacion">
-              {capitalize(operacion)} ({propiedades.length} propiedad{propiedades.length !== 1 ? 'es' : ''})
-            </h3>
-            <div className="propiedades-grid" style={{ display: propiedades.length < 3 ? 'inline-flex' : undefined, flexWrap: 'wrap', justifyContent: 'center' }}>
-              {propiedades.map((prop) => (
-                <div key={prop.id} className="prop-card" onClick={() => navigate(`/propiedades/${prop.id}`)}>
-                  <img src={prop.url} alt={prop.titulo} className="prop-img" />
-                  <div className="prop-info">
-                    <h3>{prop.titulo}</h3>
-                    <p className="tipo-zona">{capitalize(prop.tipo)} en {capitalize(prop.zona)}</p>
-                    <p className="desc">{prop.descripcion?.slice(0, 100)}...</p>
-                    <p className="precio">{prop.precio ? `$${prop.precio}` : "Consultar"}</p>
-                  </div>
-                </div>
-              ))}
+  <div className="spinner"></div>
+) : propiedades.length === 0 ? (
+  <div className="sin-resultados">
+    <p>No se encontraron propiedades con los filtros seleccionados.</p>
+    <button onClick={handleResetFilters} className="reset-filtros-btn">
+      Limpiar filtros
+    </button>
+  </div>
+) : (
+  propiedadesAgrupadas.map(({ operacion, propiedades }) => (
+    <div key={operacion} className="grupo-operacion">
+      <h3 className="titulo-operacion">
+        {capitalize(operacion)} ({propiedades.length} propiedad{propiedades.length !== 1 ? 'es' : ''})
+      </h3>
+      <div
+        className="propiedades-grid"
+        style={{
+          display: propiedades.length < 3 ? 'inline-flex' : undefined,
+          flexWrap: 'wrap',
+          justifyContent: 'center'
+        }}
+      >
+        {propiedades.map((prop) => (
+          <div key={prop.id} className="prop-card" onClick={() => navigate(`/propiedades/${prop.id}`)}>
+            <img src={prop.url} alt={prop.titulo} className="prop-img" />
+            <div className="prop-info">
+              <h3>{prop.titulo}</h3>
+              <p className="tipo-zona">{capitalize(prop.tipo)} en {capitalize(prop.zona)}</p>
+              <p className="desc">{prop.descripcion?.slice(0, 100)}...</p>
+              <p className="precio">{prop.precio ? `$${prop.precio}` : "Consultar"}</p>
             </div>
           </div>
-        ))
-      )}
+        ))}
+      </div>
+    </div>
+  ))
+)}
+
 
       {totalPages > 1 && (
         <div className="pagination-controls">
-          <button onClick={() => { setPage((prev) => Math.max(prev - 1, 1)); scrollToSection(); }} disabled={page === 1}>
+          <button onClick={() => { setPage((prev) => Math.max(prev - 1, 1));     scrollToTopOfProps(); }} disabled={page === 1}>
             ⬅ Anterior
           </button>
           {Array.from({ length: totalPages }, (_, i) => (
             <button
               key={i}
-              onClick={() => { setPage(i + 1); scrollToSection(); }}
+              onClick={() => { setPage(i + 1); scrollToTopOfProps(); }}
               className={page === i + 1 ? "active" : ""}
             >
               {i + 1}
             </button>
           ))}
-          <button onClick={() => { setPage((prev) => Math.min(prev + 1, totalPages)); scrollToSection(); }} disabled={page === totalPages}>
+          <button onClick={() => { setPage((prev) => Math.min(prev + 1, totalPages)); scrollToTopOfProps(); }} disabled={page === totalPages}>
             Siguiente ➡
           </button>
         </div>
