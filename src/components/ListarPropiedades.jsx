@@ -13,11 +13,12 @@ const PropiedadList = () => {
   const fetchPropiedades = async () => {
     try {
       const res = await axios.get(`${API}/api/propiedades`);
-      setPropiedades(res.data);
+      setPropiedades(res.data.propiedades || []);
     } catch (err) {
       console.error('Error al obtener propiedades', err);
     }
   };
+  
 
   useEffect(() => {
     fetchPropiedades();
@@ -57,7 +58,8 @@ const PropiedadList = () => {
           </tr>
         </thead>
         <tbody>
-        {Array.isArray(propiedades) && propiedades.map((prop) => (            <tr key={prop.id}>
+        {Array.isArray(propiedades) && propiedades.map((prop) => (            
+          <tr key={prop.id}>
               <td>{prop.id}</td>
               <td>{prop.titulo}</td>
               <td>{prop.tipo}</td>
@@ -70,6 +72,14 @@ const PropiedadList = () => {
             </tr>
           ))}
         </tbody>
+        {Array.isArray(propiedades) && propiedades.length === 0 && (
+  <tr>
+    <td colSpan="6" style={{ textAlign: 'center' }}>
+      No se encontraron propiedades.
+    </td>
+  </tr>
+)}
+
       </table>
     </div>
   );
