@@ -1,5 +1,10 @@
 
 /* Navbar.css */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  z-index: 1100;
+}
 
 .navbar {
   position: fixed;

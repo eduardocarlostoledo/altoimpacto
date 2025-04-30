@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/FeatureCard.css'; // Asegúrate de que la ruta sea correcta
 
 const FeatureCard = ({ image, title, description, onClick  }) => {
-    console.log(image, title, description);
+    //console.log(image, title, description);
   return (
     <div className="featurecard-feature-card" onClick={onClick} style={{ cursor: 'pointer' }}>
       <img src={image} alt={title} className="featurecard-feature-img" />

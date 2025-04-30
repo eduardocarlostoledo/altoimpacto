@@ -1,0 +1,45 @@
+.admin-form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  }
+  
+  .admin-form-container h2 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    color: #263d23;
+  }
+  
+  .admin-form-container input,
+  .admin-form-container textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .admin-form-container button {
+    background-color: #263d23;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .admin-form-container button:hover {
+    background-color: #3a5033;
+  }
+  
+  .admin-mensaje {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #2e6e34;
+  }
+  

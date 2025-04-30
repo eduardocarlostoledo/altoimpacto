@@ -139,7 +139,7 @@
     }
     
     .submit-btn {
-      background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+      background: linear-gradient(135deg, #696c70 0%, #657569 100%);
       color: white;
       border: none;
       padding: 1rem 2rem;
@@ -220,8 +220,8 @@
     }
     
     .info-icon {
-      width: 40px;
-      height: 40px;
+      width: 10px;
+      height: 10px;
       background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
       color: white;
       border-radius: 50%;

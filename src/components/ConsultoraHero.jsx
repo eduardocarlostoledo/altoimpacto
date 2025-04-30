@@ -28,7 +28,7 @@ const featuresConsultora = [
 ];
 
 const ConsultoraHero = () => {
-  console.log("ConsultoraHero component rendered", featuresConsultora);
+  //console.log("ConsultoraHero component rendered", featuresConsultora);
   useEffect(() => {
     gsap.from(".consultora-hero-content h1", {
       y: 50,

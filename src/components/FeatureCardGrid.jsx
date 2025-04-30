@@ -7,7 +7,7 @@ const FeatureCardGrid = ({ features = [], onCardClick }) => {
     return null;
   }
 
-  console.log(features);
+  //console.log(features);
 
   return (
     <div className="featurecardgrid-features">
