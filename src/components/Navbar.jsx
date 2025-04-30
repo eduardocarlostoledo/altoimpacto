@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import "../styles/Navbar.css";
 import logotransparente from "../img/logotransparente.png";
+import logowhatsapp from "../img/whatsapp.svg"
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("");
@@ -110,7 +111,7 @@ const Navbar = () => {
 
         <a href="https://wa.me/5493764221063" target="_blank" rel="noopener noreferrer" title="WhatsApp">
                 <img
-                  src="../public/whatsapp.svg"
+                  src={logowhatsapp}
                   alt="WhatsApp"
                   style={{ width: "40px", height: "40px", filter: "brightness(1.1)" }}
                 />
