@@ -7,7 +7,7 @@ const MySwal = withReactContent(Swal);
 const PropertyModal = ({ property }) => {
   const { image, title, description } = property;
 
-  const whatsappLink = `https://wa.me/5493764000000?text=Hola! Estoy interesado en la propiedad: ${encodeURIComponent(title)}`;
+  const whatsappLink = `https://wa.me/542216146117?text=Hola! Estoy interesado en la propiedad: ${encodeURIComponent(title)}`;
 
   MySwal.fire({
     title: `<h3 class="modal-title">${title}</h3>`,

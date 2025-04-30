@@ -27,8 +27,8 @@ const DetallePropiedad = () => {
   if (error) return <p>{error}</p>;
   if (!propiedad) return <p>Cargando propiedad...</p>;
 
-  // ✅ Ahora sí, después de tener propiedad
-  const whatsappLink = `https://wa.me/5493764000000?text=Hola! Estoy interesado en la propiedad: ${encodeURIComponent(propiedad.titulo)}`;
+  // ✅ Ahora sí, después de tener propiedad https://wa.me/542216146117
+  const whatsappLink = `https://wa.me/542216146117?text=Hola! Estoy interesado en la propiedad: ${encodeURIComponent(propiedad.titulo)}`;
 
   return (
     <div className="detalle-propiedad-container">
@@ -37,7 +37,11 @@ const DetallePropiedad = () => {
         <meta name="description" content={propiedad.descripcion?.slice(0, 150)} />
       </Helmet>
 
-      <img src={propiedad.url} alt={propiedad.titulo} className="detalle-imagen" />
+      <div className="galeria-imagenes">
+  {propiedad.imagenes?.map((img, index) => (
+    <img key={index} src={img} alt={`Imagen ${index + 1}`} className="detalle-imagen" />
+  ))}
+</div>
       <h1>{propiedad.titulo}</h1>
       <h2>{propiedad.tipo} en {propiedad.zona}</h2>
       <p>{propiedad.descripcion}</p>

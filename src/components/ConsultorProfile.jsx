@@ -15,46 +15,124 @@ const ConsultorProfile = () => {
           <h2>Gustavo Palao Castells</h2>
 
           <p className="intro">
-            ¡Hola! Soy Gustavo Palao Castells. Desde muy joven supe que mi propósito, mi "ikigai", era emprender. Logré consolidarme como empresario, combinando experiencia empírica con una sólida formación académica que hoy respaldo en mi rol como consultor.
-            <br /><br />
-            Todo en la vida se trata de vender: tu idea, tu perfil, tus sueños. ¿Recordás esa escena de "El lobo de Wall Street"? — “Véndeme esta lapicera”. En cada entrevista de trabajo, cita o presentación, estamos mostrando lo mejor de nosotros mismos.
-            <br /><br />
-            Por eso, si querés destacarte, primero debés identificar aquello que te diferencia. Lo que hace único a un producto o a una persona es su valor diferencial. Mi misión es ayudarte a descubrirlo y potenciarlo para que logres tus metas personales y profesionales.
+            Hola, mi nombre es Gustavo palao Castell, quiero comentarles a que
+            me dedico, mi gran ikigai en la vida fue siempre ser empresario, y
+            lo logre desde muy corta edad, por supuesto tengo estudios, la
+            mayoría avala la experiencia empírica y teórica para esta fase de
+            consultoría.
+            <br />
+            <br />
+            Ustedes saben que todo en la vida está relacionado con las ventas,
+            recuerden esta frase del lobo de Wall Street: les voy a pedir un
+            favor… necesito que me vendan esta lapicera….recuerdan esta
+            película?
+            <br />
+            <br />
+            Todo en la vida se trata de vender, si vas a una entrevista de
+            trabajo, te estas vendiendo, demostrás lo mejor que tienes inclusive
+            más, cuando conoces a tu pareja, te estas vendiendo, no conozco a
+            una persona que haya teniendo su primera cita y haya comenzado
+            hablando de sus defectos. Repito cada acto en nuestra vida en
+            relación con un tercero, se trata de vender.
+            <br />
+            <br />
+            Y si necesitas vender, o venderte, solo tienes que describir cual es
+            la cualidad más importante del producto el cual vendes o de tu
+            personalidad… de modo que cuando la otra persona trate de analizar
+            el producto. Se pregunte, porque tengo que elegir necesariamente
+            este producto y no el otro, que nos diferencia o lo diferencia del
+            resto… esto es lo primero que debemos saber, ya que todo se
+            relaciona con lo que nos diferencia o diferencia de la otra persona
+            o de un producto relacionado con otro, y la respuesta tiene que
+            ser…te elijo o elijo porque tus cualidades son diferentes
+            (superiores al resto), esto es lo primero que tenemos que hallar,
+            diferenciarnos...
+            <br />
+            <br />
+            Pero por supuesto…antes…tenemos que conocer cada paso en su
+            respectivo orden para poder lograr efectivizar nuestras metas y
+            llevar a cabo un emprendimiento, convertirnos en personas exitosas
+            es nuestra condición sine qua non para ser feliz y cumplir con todos
+            nuestros sueños u objetivos…hacia allá vamos entonces.
+            <br />
+            <br />
           </p>
 
-          
+          <h3>Consultoría Empresarial Integral</h3>
+          <p>
+            Ofrecemos servicios de consultoría integral para organizaciones que
+            desean mejorar su productividad, competitividad y sostenibilidad.
+            Acompañamos a las empresas en la toma de decisiones estratégicas,
+            optimizamos recursos y diseñamos soluciones adaptadas a sus
+            necesidades particulares.
+          </p>
 
-<h3>Consultoría Empresarial Integral</h3>
-<p>
-  Ofrecemos servicios de consultoría integral para organizaciones que desean mejorar su productividad, competitividad y sostenibilidad. Acompañamos a las empresas en la toma de decisiones estratégicas, optimizamos recursos y diseñamos soluciones adaptadas a sus necesidades particulares.
-</p>
-
-<h3>Recursos Humanos</h3>
-<p>
-  En el área de Recursos Humanos, nos enfocamos en maximizar el talento como motor clave del crecimiento organizacional. Nos especializamos en:
-</p>
-<ul>
-  <li>Diseñamos e implementamos políticas de gestión del talento.</li>
-  <li>Ejecutamos procesos de reclutamiento, selección y retención de perfiles estratégicos.</li>
-  <li>Realizamos diagnósticos del clima laboral y aplicamos programas de mejora continua.</li>
-  <li>Desarrollamos planes de capacitación y liderazgo.</li>
-  <li>Gestionamos la resolución de conflictos laborales.</li>
-  <li>Brindamos coaching para descubrir talentos ocultos y propósitos personales.</li>
-</ul>
-
+          <h3>Recursos Humanos</h3>
+          <p>
+            En el área de Recursos Humanos, nos enfocamos en maximizar el
+            talento como motor clave del crecimiento organizacional. Nos
+            especializamos en:
+          </p>
+          <ul>
+            <li>Diseñamos e implementamos políticas de gestión del talento.</li>
+            <li>
+              Ejecutamos procesos de reclutamiento, selección y retención de
+              perfiles estratégicos.
+            </li>
+            <li>
+              Realizamos diagnósticos del clima laboral y aplicamos programas de
+              mejora continua.
+            </li>
+            <li>Desarrollamos planes de capacitación y liderazgo.</li>
+            <li>Gestionamos la resolución de conflictos laborales.</li>
+            <li>
+              Brindamos coaching para descubrir talentos ocultos y propósitos
+              personales.
+            </li>
+          </ul>
 
           <h3>Servicios</h3>
           <ul>
-            <li><strong>Capacitación y Formación:</strong> talleres de liderazgo, trabajo en equipo y habilidades blandas.</li>
-            <li><strong>Mentoría:</strong> programas para el desarrollo personal y profesional de empleados y líderes.</li>
-            <li><strong>Coaching Ejecutivo:</strong> acompañamiento personalizado a gerentes y ejecutivos.</li>
-            <li><strong>Bienestar Organizacional:</strong> implementación de programas de salud mental y física.</li>
-            <li><strong>Desarrollo Organizacional:</strong> mejora de estructuras y cultura interna.</li>
-            <li><strong>Gestión del Talento:</strong> planes de carrera y sucesión.</li>
-            <li><strong>Dinámicas Grupales:</strong> resolución de conflictos y mejora de la comunicación.</li>
-            <li><strong>Diversidad e Inclusión:</strong> diseño de políticas inclusivas y equitativas.</li>
-            <li><strong>Programas de Liderazgo:</strong> detección y formación de líderes internos.</li>
-            <li><strong>Selección de Personal:</strong> reclutamiento de perfiles operativos, administrativos, jerárquicos, domésticos y de cuidado.</li>
+            <li>
+              <strong>Capacitación y Formación:</strong> talleres de liderazgo,
+              trabajo en equipo y habilidades blandas.
+            </li>
+            <li>
+              <strong>Mentoría:</strong> programas para el desarrollo personal y
+              profesional de empleados y líderes.
+            </li>
+            <li>
+              <strong>Coaching Ejecutivo:</strong> acompañamiento personalizado
+              a gerentes y ejecutivos.
+            </li>
+            <li>
+              <strong>Bienestar Organizacional:</strong> implementación de
+              programas de salud mental y física.
+            </li>
+            <li>
+              <strong>Desarrollo Organizacional:</strong> mejora de estructuras
+              y cultura interna.
+            </li>
+            <li>
+              <strong>Gestión del Talento:</strong> planes de carrera y
+              sucesión.
+            </li>
+            <li>
+              <strong>Dinámicas Grupales:</strong> resolución de conflictos y
+              mejora de la comunicación.
+            </li>
+            <li>
+              <strong>Diversidad e Inclusión:</strong> diseño de políticas
+              inclusivas y equitativas.
+            </li>
+            <li>
+              <strong>Programas de Liderazgo:</strong> detección y formación de
+              líderes internos.
+            </li>
+            <li>
+              <strong>Selección de Personal:</strong> reclutamiento de perfiles
+              operativos, administrativos, jerárquicos, domésticos y de cuidado.
+            </li>
           </ul>
 
           <h3>Formación y Experiencia</h3>
@@ -84,7 +162,6 @@ const ConsultorProfile = () => {
 };
 
 export default ConsultorProfile;
-
 
 // import React from "react";
 // import consultor from "../img/consultor.png"; // Asegúrate de que la imagen esté en la carpeta correcta

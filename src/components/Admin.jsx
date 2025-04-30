@@ -21,7 +21,9 @@ const Admin = ({ propiedadEdit, onChange }) => {
     descripcion: '',
     precio: ''
   });
-  const [imagen, setImagen] = useState(null);
+
+  const [imagenes, setImagenes] = useState([]);
+  const [previewUrls, setPreviewUrls] = useState([]);
   const [loading, setLoading] = useState(false);
   const [mensaje, setMensaje] = useState('');
 
@@ -35,6 +37,9 @@ const Admin = ({ propiedadEdit, onChange }) => {
         descripcion: propiedadEdit.descripcion || '',
         precio: propiedadEdit.precio || ''
       });
+
+      // preview de imágenes existentes si se desea implementar
+      setPreviewUrls(propiedadEdit.imagenes || []);
     }
   }, [propiedadEdit]);
 
@@ -44,7 +49,11 @@ const Admin = ({ propiedadEdit, onChange }) => {
   };
 
   const handleFileChange = (e) => {
-    setImagen(e.target.files[0]);
+    const files = Array.from(e.target.files).slice(0, 15); // max 15
+    setImagenes(files);
+
+    const previews = files.map(file => URL.createObjectURL(file));
+    setPreviewUrls(previews);
   };
 
   const handleSubmit = async (e) => {
@@ -52,12 +61,10 @@ const Admin = ({ propiedadEdit, onChange }) => {
 
     const data = new FormData();
     Object.keys(formData).forEach(key => data.append(key, formData[key]));
-    if (imagen) data.append('imagen', imagen);
+    imagenes.forEach((file) => data.append('imagenes', file));
 
     try {
       setLoading(true);
-
-      
 
       const endpoint = propiedadEdit
         ? `${API}/api/propiedades/${propiedadEdit.id}`
@@ -69,7 +76,8 @@ const Admin = ({ propiedadEdit, onChange }) => {
 
       setMensaje(propiedadEdit ? 'Propiedad actualizada' : 'Propiedad creada correctamente');
       setFormData({ titulo: '', tipo: '', operacion: '', zona: '', descripcion: '', precio: '' });
-      setImagen(null);
+      setImagenes([]);
+      setPreviewUrls([]);
       if (onChange) onChange();
     } catch (error) {
       setMensaje('Error al procesar la propiedad');
@@ -102,7 +110,15 @@ const Admin = ({ propiedadEdit, onChange }) => {
         <input type="text" name="zona" placeholder="Localidad" value={formData.zona} onChange={handleChange} required />
         <textarea name="descripcion" placeholder="Descripción" value={formData.descripcion} onChange={handleChange}></textarea>
         <input type="number" name="precio" placeholder="Precio (opcional)" value={formData.precio} onChange={handleChange} />
-        <input type="file" accept="image/*" onChange={handleFileChange} />
+
+        <input type="file" accept="image/*" multiple onChange={handleFileChange} />
+        {previewUrls.length > 0 && (
+          <div className="preview-container">
+            {previewUrls.map((src, i) => (
+              <img key={i} src={src} alt={`preview-${i}`} className="preview-img" />
+            ))}
+          </div>
+        )}
 
         <button type="submit" disabled={loading}>
           {loading ? (propiedadEdit ? 'Actualizando...' : 'Subiendo...') : (propiedadEdit ? 'Actualizar Propiedad' : 'Cargar Propiedad')}

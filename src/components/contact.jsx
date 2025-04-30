@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import emailjs from '@emailjs/browser';
 import Swal from "sweetalert2";
 import "../styles/Contact.css";
-
+import whatsapp from "../img/whatsapp.svg";
 const Contact = ({ data }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -172,9 +172,9 @@ const Contact = ({ data }) => {
                 </a>
               )}
 
-              <a href="https://wa.me/5493764221063" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+              <a href="https://wa.me/542216146117" target="_blank" rel="noopener noreferrer" title="WhatsApp">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                  src={whatsapp}
                   alt="WhatsApp"
                   style={{ width: "40px", height: "40px", filter: "brightness(1.1)" }}
                 />

@@ -16,10 +16,13 @@ import homesostenibilidad from "../img/home-sostenibilidad.jpg";
 import homebaner1 from "../img/home-baner1.jpg";
 import homebaner2 from "../img/home-baner2.jpeg";
 import homebaner3 from "../img/home-baner3.jpg";
+import { useNavigate } from "react-router-dom";
+import LinkComponente from "./LinkComponente.jsx";
 
 const featuresServiciosGlobales = [
   {
     image: homebaner3,
+    baner: "Constructora",
     title: "Construcción Premium",
     description: "Realizamos proyectos arquitectónicos de vanguardia",
     link: "/constructora",
@@ -27,6 +30,7 @@ const featuresServiciosGlobales = [
 
   {
     image: homebaner2,
+    baner: "Inmobiliaria",
     title: "Desarrollos Inmobiliarios",
     description:
       "Propiedades exclusivas con los más altos estándares de calidad",
@@ -35,6 +39,7 @@ const featuresServiciosGlobales = [
 
   {
     image: homebaner1,
+    baner: "Consultoría Empresarial",
     title: "Consultoría Estratégica",
     description:
       "25 años de experiencia en compras públicas y desarrollo empresarial",
@@ -45,6 +50,8 @@ const featuresServiciosGlobales = [
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const bg = document.querySelector(".home-hero-bg");
     if (bg) {
@@ -81,6 +88,10 @@ const Home = () => {
     });
   }, []);
 
+  const handleClickLink = (ruta) => {
+    navigate(ruta);
+  };
+
   const handleClick = (property) => {
     PropertyModal({ property });
   };
@@ -96,10 +107,11 @@ const Home = () => {
 
       {/* Cards de servicios estratégicos */}
       <section className="home-features-cards">
-        <FeatureCardGrid
-          features={featuresServiciosGlobales}
-          onCardClick={handleClick}
-        />
+      <LinkComponente
+      features={featuresServiciosGlobales}
+      onCardClick={handleClickLink}
+    />
+        
       </section>
 
       {/* Misión, visión y valores */}

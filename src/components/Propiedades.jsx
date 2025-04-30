@@ -171,16 +171,21 @@ const handleResetFilters = () => {
         }}
       >
         {propiedades.map((prop) => (
-          <div key={prop.id} className="prop-card" onClick={() => navigate(`/propiedades/${prop.id}`)}>
-            <img src={prop.url} alt={prop.titulo} className="prop-img" />
-            <div className="prop-info">
-              <h3>{prop.titulo}</h3>
-              <p className="tipo-zona">{capitalize(prop.tipo)} en {capitalize(prop.zona)}</p>
-              <p className="desc">{prop.descripcion?.slice(0, 100)}...</p>
-              <p className="precio">{prop.precio ? `$${prop.precio}` : "Consultar"}</p>
-            </div>
-          </div>
-        ))}
+  <div key={prop.id} className="prop-card" onClick={() => navigate(`/propiedades/${prop.id}`)}>
+    <img
+      src={prop.imagenDestacada || "/placeholder.jpg"}
+      alt={prop.titulo}
+      className="prop-img"
+    />
+    <div className="prop-info">
+      <h3>{prop.titulo}</h3>
+      <p className="tipo-zona">{capitalize(prop.tipo)} en {capitalize(prop.zona)}</p>
+      <p className="desc">{prop.descripcion?.slice(0, 100)}...</p>
+      <p className="precio">{prop.precio ? `$${prop.precio}` : "Consultar"}</p>
+    </div>
+  </div>
+))}
+
       </div>
     </div>
   ))

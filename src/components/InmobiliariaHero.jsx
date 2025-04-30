@@ -94,10 +94,13 @@ const InmobiliariaHero = () => {
         <div className="inmobiliaria-hero-overlay"></div>
         <div className="inmobiliaria-hero-content">
           <h1><span className="highlight">NOSOTROS </span> NO ENCONTRAMOS TU CASA</h1>
-          <p className="subtitle">
+          <h2 className="higligth-hero-constructora" style={ { color: "#fff", fontSize: "3rem", fontWeight: "400", textAlign: "center", marginTop: "1rem" } }
+
+          >"TE ENTREGAMOS EL LUGAR DONDE CONSTRUIRÁS TUS 
+          SUEÑOS Y METAS MÁS DESEADAS”</h2>{/* <p className="subtitle">
             TE ENTREGAMOS EL LUGAR DONDE CONSTRUIRÁS TUS 
             SUEÑOS Y METAS MÁS DESEADAS”
-          </p>
+          </p> */}
         </div>
       </section>
 

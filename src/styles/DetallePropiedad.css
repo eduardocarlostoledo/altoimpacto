@@ -10,14 +10,24 @@
     text-align: center;
   }
   
-  /* Imagen principal */
+  .galeria-imagenes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
   .detalle-imagen {
     width: 100%;
     height: auto;
-    max-height: 500px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .detalle-imagen:hover {
+    transform: scale(1.02);
   }
   
   /* Título de la propiedad */

@@ -109,7 +109,7 @@ const Navbar = () => {
 
         <div>
 
-        <a href="https://wa.me/5493764221063" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <a href="https://wa.me/542216146117" target="_blank" rel="noopener noreferrer" title="WhatsApp">
                 <img
                   src={logowhatsapp}
                   alt="WhatsApp"
