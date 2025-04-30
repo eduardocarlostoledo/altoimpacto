@@ -30,7 +30,7 @@ const PropiedadesPublic = () => {
       query.append("page", page);
       query.append("limit", 10);
   
-      const res = await axios.get(`${API}/propiedades?${query.toString()}`);
+      const res = await axios.get(`${API}/api/propiedades?${query.toString()}`);
       
       const isArray = Array.isArray(res.data);
       const propiedades2 = isArray ? res.data : res.data.propiedades || [];

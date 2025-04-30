@@ -12,7 +12,7 @@ const PropiedadList = () => {
 
   const fetchPropiedades = async () => {
     try {
-      const res = await axios.get(`${API}/propiedades`);
+      const res = await axios.get(`${API}/api/propiedades`);
       setPropiedades(res.data);
     } catch (err) {
       console.error('Error al obtener propiedades', err);
