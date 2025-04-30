@@ -1,6 +1,6 @@
 // ✅ Propiedades.jsx
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "../styles/PropiedadesPublic.css";
 
@@ -15,6 +15,8 @@ const tiposOperacion = ["VENTA", "ALQUILER", "ALQUILER TEMPORAL"];
 
 const Propiedades = () => {
   const navigate = useNavigate();
+  const topRef = useRef(null);
+  const sectionRef = useRef(null);
   const [propiedades, setPropiedades] = useState([]);
   const [filtros, setFiltros] = useState({ tipo: "", operacion: "", zona: "", precioMax: "", precioMin: "" });
   const [tiposUnicos, setTiposUnicos] = useState([]);
@@ -23,6 +25,12 @@ const Propiedades = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
+  const scrollToSection = () => {
+    if (sectionRef.current) {
+      window.scrollTo({ top: sectionRef.current.offsetTop, behavior: "smooth" });
+    }
+  };
 
   const fetchPropiedades = async () => {
     try {
@@ -46,6 +54,8 @@ const Propiedades = () => {
         setZonasUnicas(res.data.filtros.zonas);
         setOperacionesUnicas(res.data.filtros.operacion);
       }
+
+      scrollToSection();
     } catch (err) {
       console.error("Error al obtener propiedades", err);
     } finally {
@@ -61,11 +71,13 @@ const Propiedades = () => {
     const { name, value } = e.target;
     setFiltros((prev) => ({ ...prev, [name]: value }));
     setPage(1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleResetFilters = () => {
     setFiltros({ tipo: "", operacion: "", zona: "", precioMax: "", precioMin: "" });
     setPage(1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const propiedadesAgrupadas = tiposOperacion.map((op) => ({
@@ -74,8 +86,8 @@ const Propiedades = () => {
   })).filter((grupo) => grupo.propiedades.length > 0);
 
   return (
-    <section className="propiedades-section">
-      <h2>Propiedades Disponibles</h2>
+    <section className="propiedades-section" ref={sectionRef}>
+      <h2 ref={topRef}>Propiedades Disponibles</h2>
 
       <div className="propiedades-filtros">
         <select name="tipo" value={filtros.tipo} onChange={handleFiltroChange}>
@@ -148,19 +160,19 @@ const Propiedades = () => {
 
       {totalPages > 1 && (
         <div className="pagination-controls">
-          <button onClick={() => setPage((prev) => Math.max(prev - 1, 1))} disabled={page === 1}>
+          <button onClick={() => { setPage((prev) => Math.max(prev - 1, 1)); scrollToSection(); }} disabled={page === 1}>
             ⬅ Anterior
           </button>
           {Array.from({ length: totalPages }, (_, i) => (
             <button
               key={i}
-              onClick={() => setPage(i + 1)}
+              onClick={() => { setPage(i + 1); scrollToSection(); }}
               className={page === i + 1 ? "active" : ""}
             >
               {i + 1}
             </button>
           ))}
-          <button onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))} disabled={page === totalPages}>
+          <button onClick={() => { setPage((prev) => Math.min(prev + 1, totalPages)); scrollToSection(); }} disabled={page === totalPages}>
             Siguiente ➡
           </button>
         </div>
