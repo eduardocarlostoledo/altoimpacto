@@ -28,7 +28,8 @@ const PropiedadList = () => {
     if (!confirmar) return;
 
     try {
-      await axios.delete(`http://localhost:3001/api/propiedades/${id}`);
+      await axios.delete(`${API}/api/propiedades/${id}`);
+
       fetchPropiedades();
     } catch (err) {
       console.error('Error al eliminar propiedad', err);
@@ -56,8 +57,7 @@ const PropiedadList = () => {
           </tr>
         </thead>
         <tbody>
-          {propiedades.map((prop) => (
-            <tr key={prop.id}>
+        {Array.isArray(propiedades) && propiedades.map((prop) => (            <tr key={prop.id}>
               <td>{prop.id}</td>
               <td>{prop.titulo}</td>
               <td>{prop.tipo}</td>
