@@ -15,7 +15,7 @@ const ConsultorProfile = () => {
           <h2>Gustavo Palao Castells</h2>
 
           <p className="intro">
-            Hola, mi nombre es Gustavo palao Castell, quiero comentarles a que
+            Hola, mi nombre es Gustavo Palao Castells, quiero comentarles a que
             me dedico, mi gran ikigai en la vida fue siempre ser empresario, y
             lo logre desde muy corta edad, por supuesto tengo estudios, la
             mayoría avala la experiencia empírica y teórica para esta fase de
@@ -23,9 +23,8 @@ const ConsultorProfile = () => {
             <br />
             <br />
             Ustedes saben que todo en la vida está relacionado con las ventas,
-            recuerden esta frase del lobo de Wall Street: les voy a pedir un
-            favor… necesito que me vendan esta lapicera….recuerdan esta
-            película?
+            recuerdan esta frase de la película de El Lobo de Wall Street? "Les voy a pedir un
+            favor… necesito que me vendan esta lapicera".
             <br />
             <br />
             Todo en la vida se trata de vender, si vas a una entrevista de

@@ -25,6 +25,7 @@ const Propiedades = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [ordenPrecio, setOrdenPrecio] = useState(""); // "" | "asc" | "desc"
 
   // ✅ Al montar el componente: IR AL HERO (solo al principio)
 useEffect(() => {
@@ -32,9 +33,15 @@ useEffect(() => {
 }, []);
 
   
-  useEffect(() => {
-    fetchPropiedades();
-  }, [filtros, page]);
+useEffect(() => {
+  fetchPropiedades();
+}, [filtros.tipo, filtros.zona, filtros.operacion, filtros.precioMin, filtros.precioMax, ordenPrecio, page]);
+
+useEffect(() => {
+  setPage(1);
+}, [filtros.tipo, filtros.zona, filtros.operacion, filtros.precioMin, filtros.precioMax, ordenPrecio]);
+
+
   
   const scrollToTopOfProps = () => {
     if (topRef.current) {
@@ -54,6 +61,8 @@ useEffect(() => {
       if (filtros.zona) query.append("zona", filtros.zona.toLowerCase());
       if (filtros.precioMin) query.append("precioMin", filtros.precioMin);
       if (filtros.precioMax) query.append("precioMax", filtros.precioMax);
+      if (ordenPrecio) query.append("ordenPrecio", ordenPrecio);
+
       query.append("page", page);
       query.append("limit", 12);
 
@@ -105,25 +114,32 @@ const handleResetFilters = () => {
 
       <div className="propiedades-filtros">
         <select name="tipo" value={filtros.tipo} onChange={handleFiltroChange}>
-          <option value="">Todos los tipos</option>
+          <option value="">Propiedades</option>
           {tiposUnicos.map((t, i) => (
             <option key={i} value={t}>{capitalize(t)}</option>
           ))}
         </select>
 
         <select name="zona" value={filtros.zona} onChange={handleFiltroChange}>
-          <option value="">Todas las zonas</option>
+          <option value="">Localidades</option>
           {zonasUnicas.map((z, i) => (
             <option key={i} value={z}>{capitalize(z)}</option>
           ))}
         </select>
 
         <select name="operacion" value={filtros.operacion} onChange={handleFiltroChange}>
-          <option value="">Todas las operaciones</option>
+          <option value="">Operación</option>
           {operacionesUnicas.map((op, i) => (
             <option key={i} value={op}>{capitalize(op)}</option>
           ))}
         </select>
+
+        <select value={ordenPrecio} onChange={(e) => setOrdenPrecio(e.target.value)}>
+  <option value="">Ordenar por precio</option>
+  <option value="asc">Menor precio</option>
+  <option value="desc">Mayor precio</option>
+</select>
+
 
         <input
           type="number"
