@@ -26,9 +26,7 @@
   margin-top: -10rem;
   width: 40%;
   filter: drop-shadow(1px 1px 8px rgb(204, 192, 182));
-  margin-bottom: 10rem;
-
-
+  
 }
 
 @media screen and (max-width: 900px) {
