@@ -58,24 +58,6 @@ gsap.registerPlugin(gsap.ScrollTrigger);
 const InmobiliariaHero = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    gsap.to(".inmobiliaria-hero-bg", {
-      scale: 1.1,
-      duration: 15,
-      ease: "none",
-      repeat: -1,
-      yoyo: true,
-    });
-
-    gsap.from(".inmobiliaria-hero-content > *", {
-      y: 80,
-      opacity: 1,
-      stagger: 0.2,
-      duration: 0,
-      ease: "power3.out",
-      delay: 0.9,
-    });
-  }, []);
 
   const handleClick = (property) => {
     PropertyModal({ property });
@@ -94,7 +76,8 @@ const InmobiliariaHero = () => {
         <div className="inmobiliaria-hero-overlay"></div>
         <div className="inmobiliaria-hero-content">
           <h1><span className="highlight">NOSOTROS </span> NO ENCONTRAMOS TU CASA</h1>
-          <h2 className="higligth-hero-constructora" style={ { color: "#fff", fontSize: "2rem", fontWeight: "400", textAlign: "center", marginTop: "1rem" } }
+          <h2 className="higligth-hero-constructora" 
+          
 
           >"TE ENTREGAMOS EL LUGAR DONDE CONSTRUIRÁS TUS 
           SUEÑOS Y METAS MÁS DESEADAS”</h2>{/* <p className="subtitle">

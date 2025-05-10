@@ -14,6 +14,7 @@ import constructorast1 from "../img/constructorast1.jpeg";
 import constructorast2 from "../img/constructorast2.webp";
 import constructorast3 from "../img/constructorast3.jpg";
 import constructorast4 from "../img/constructorast4.jpg";
+import Viviendas from "./Viviendas";
 
 
 
@@ -44,6 +45,7 @@ const featuresConstructora = [
 
 
 const ConstructoraHero = () => {
+
   useEffect(() => {
     gsap.from(".constructora-hero-content h1", {
       y: 80,
@@ -90,6 +92,15 @@ const ConstructoraHero = () => {
     PropertyModal({ property });
   };
   
+  
+    // 👇 Al hacer click en una propiedad real
+    const handlePropertyClick = (prop) => {
+      
+      navigate(`/planes/${prop.id}`);
+    };
+
+   
+    
 
   return (
     <div>
@@ -115,6 +126,8 @@ const ConstructoraHero = () => {
       </section>
 
       <FeatureCardGrid features={featuresConstructora} onCardClick={handleClick} />
+
+      <Viviendas onCardClick={handlePropertyClick} />
         
       <div>
         <StorytellingSection

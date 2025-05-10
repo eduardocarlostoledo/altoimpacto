@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import GeorefLocationSelector from './GeorefLocationSelector.jsx';
 import '../styles/Admin.css';
 const API = import.meta.env.VITE_API_URL;
 
@@ -12,15 +13,26 @@ const tipos = [
 
 const operaciones = ['VENTA', 'ALQUILER', 'ALQUILER TEMPORAL'];
 
+
+const zonasAgrupadas = {
+  'Prov. Buenos Aires Interior': ['Todo Buenos Aires', 'Bahía Blanca', 'Mar del Plata', 'Tandil'],
+  'Capital Federal': ['Todo Capital Federal', 'Palermo', 'Recoleta', 'Caballito'],
+  'La Plata': ['Todo La Plata', 'Tolosa', 'City Bell', 'Los Hornos'],
+  'Otras Provincias': ['Todo Otras Provincias', 'Córdoba', 'Mendoza', 'Santa Fe']
+};
+
 const Admin = ({ propiedadEdit, onChange }) => {
   const [formData, setFormData] = useState({
     titulo: '',
     tipo: '',
     operacion: '',
-    zona: '',
+    zona_provincia: '',
+    zona_municipio: '',
+    zona_localidad: '',
     descripcion: '',
     precio: ''
   });
+  
 
   const [imagenes, setImagenes] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
@@ -29,19 +41,29 @@ const Admin = ({ propiedadEdit, onChange }) => {
 
   useEffect(() => {
     if (propiedadEdit) {
-      setFormData({
-        titulo: propiedadEdit.titulo || '',
-        tipo: propiedadEdit.tipo || '',
-        operacion: propiedadEdit.operacion || '',
-        zona: propiedadEdit.zona || '',
-        descripcion: propiedadEdit.descripcion || '',
-        precio: propiedadEdit.precio || ''
-      });
-
-      // preview de imágenes existentes si se desea implementar
-      setPreviewUrls(propiedadEdit.imagenes || []);
+      setFormData(prev => ({
+        ...prev,
+        titulo: propiedadEdit.titulo ?? '',
+        tipo: propiedadEdit.tipo ?? '',
+        operacion: propiedadEdit.operacion ?? '',
+        zona: propiedadEdit.zona ?? '',
+        descripcion: propiedadEdit.descripcion ?? '',
+        precio: propiedadEdit.precio ?? ''
+      }));
     }
   }, [propiedadEdit]);
+  
+
+  const handleGeorefChange = ({ provincia, municipio, localidad }) => {
+    setFormData(prev => ({
+      ...prev,
+      zona_provincia: provincia,
+      zona_municipio: municipio,
+      zona_localidad: localidad
+    }));
+  };
+  
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,7 +82,10 @@ const Admin = ({ propiedadEdit, onChange }) => {
     e.preventDefault();
 
     const data = new FormData();
-    Object.keys(formData).forEach(key => data.append(key, formData[key]));
+    Object.entries(formData).forEach(([key, value]) => {
+      data.append(key, value);
+    });
+    
     imagenes.forEach((file) => data.append('imagenes', file));
 
     try {
@@ -105,11 +130,23 @@ const Admin = ({ propiedadEdit, onChange }) => {
           {operaciones.map(op => (
             <option key={op} value={op}>{op}</option>
           ))}
+          
         </select>
 
-        <input type="text" name="zona" placeholder="Localidad" value={formData.zona} onChange={handleChange} required />
+        
+<GeorefLocationSelector onChange={handleGeorefChange} />
+
+
+
         <textarea name="descripcion" placeholder="Descripción" value={formData.descripcion} onChange={handleChange}></textarea>
-        <input type="number" name="precio" placeholder="Precio (opcional)" value={formData.precio} onChange={handleChange} />
+        <input
+  type="number"
+  name="precio"
+  placeholder="Precio (opcional)"
+  value={formData.precio || ''}
+  onChange={handleChange}
+/>
+
 
         <input type="file" accept="image/*" multiple onChange={handleFileChange} />
         {previewUrls.length > 0 && (

@@ -1,8 +1,10 @@
-// ✅ PropiedadList.jsx
-import React, { useEffect, useState } from 'react';
+// ✅ PropiedadList.jsx administración de propiedades
+import React, { useEffect, useRef, useState } from 'react';
+
 import axios from 'axios';
 import Admin from './Admin';
 import '../styles/PropiedadList.css';
+import GeorefLocationSelector from './GeorefLocationSelector';
 const API = import.meta.env.VITE_API_URL;
 
 const tiposPropiedad = [
@@ -13,24 +15,39 @@ const tiposPropiedad = [
 
 const tiposOperacion = ['VENTA', 'ALQUILER', 'ALQUILER TEMPORAL'];
 
+
+
+
 const PropiedadList = () => {
   const [propiedades, setPropiedades] = useState([]);
   const [editando, setEditando] = useState(null);
-  const [filtros, setFiltros] = useState({ tipo: '', operacion: '', zona: '' });
+  const adminRef = useRef(null);
+
+  const [filtros, setFiltros] = useState({
+    tipo: '',
+    operacion: '',
+    zona_provincia: '',
+    zona_municipio: '',
+    zona_localidad: '',
+  });
+  
 
   const fetchPropiedades = async () => {
     try {
       const query = new URLSearchParams();
       if (filtros.tipo) query.append('tipo', filtros.tipo);
       if (filtros.operacion) query.append('operacion', filtros.operacion);
-      if (filtros.zona) query.append('zona', filtros.zona);
-
-      const res = await axios.get(`${API}/api/propiedades?${query.toString()}`);
+      if (filtros.zona_provincia) query.append('zona_provincia', filtros.zona_provincia);
+      if (filtros.zona_municipio) query.append('zona_municipio', filtros.zona_municipio);
+      if (filtros.zona_localidad) query.append('zona_localidad', filtros.zona_localidad);
+  
+      const res = await axios.get(`${API}/api/propiedades/filtros?${query.toString()}`);
       setPropiedades(res.data.propiedades || []);
     } catch (err) {
       console.error('Error al obtener propiedades', err);
     }
   };
+  
 
   useEffect(() => {
     fetchPropiedades();
@@ -55,7 +72,8 @@ const PropiedadList = () => {
 
   const propiedadesAgrupadas = tiposOperacion.map(op => ({
     operacion: op,
-    propiedades: propiedades.filter(p => p.operacion === op)
+    propiedades: propiedades.filter(p => p.operacion?.toUpperCase() === op)
+
   })).filter(grupo => grupo.propiedades.length > 0);
 
   return (
@@ -78,17 +96,23 @@ const PropiedadList = () => {
           ))}
         </select>
 
-        <input
-          type="text"
-          name="zona"
-          className="filtro-input"
-          placeholder="Localidad / Zona"
-          value={filtros.zona}
-          onChange={handleFiltroChange}
-        />
+        <GeorefLocationSelector
+  onChange={({ provincia, municipio, localidad }) => {
+    setFiltros((prev) => ({
+      ...prev,
+      zona_provincia: provincia || '',
+      zona_municipio: municipio || '',
+      zona_localidad: localidad || '',
+    }));
+  }}
+/>
+
+
+
+
       </div>
 
-      <div className="admin-form-wrapper">
+      <div className="admin-form-wrapper" ref={adminRef}>
         <Admin
           key={editando?.id || 'nuevo'}
           propiedadEdit={editando}
@@ -105,14 +129,20 @@ const PropiedadList = () => {
             <h3>{operacion}</h3>
             <table>
               <thead>
+                
                 <tr>
-                  <th>ID</th>
-                  <th>Título</th>
-                  <th>Tipo</th>
-                  <th>Operación</th>
-                  <th>Localidad</th>
-                  <th>Precio</th>
-                  <th>Acciones</th>
+  <th>ID</th>
+  <th>Título</th>
+  <th>Tipo</th>
+  <th>Operación</th>
+  <th>Provincia</th>
+<th>Municipio</th>
+<th>Localidad</th>
+
+  <th>Precio</th>
+  <th>Acciones</th>
+
+
                 </tr>
               </thead>
               <tbody>
@@ -122,10 +152,24 @@ const PropiedadList = () => {
                     <td>{prop.titulo}</td>
                     <td>{prop.tipo}</td>
                     <td>{prop.operacion}</td>
-                    <td>{prop.zona}</td>
+                    
+                    <td>{prop.zona_provincia || ''}</td>
+<td>{prop.zona_municipio || ''}</td>
+<td>{prop.zona_localidad || ''}</td>
+
+
+
                     <td>{prop.precio ? `$${prop.precio}` : 'Consultar'}</td>
                     <td>
-                      <button onClick={() => setEditando(prop)}>Editar</button>
+                    <button onClick={() => {
+  setEditando(prop);
+  setTimeout(() => {
+    adminRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, 100); // delay breve para asegurar montaje
+}}>
+  Editar
+</button>
+
                       <button className="delete-btn" onClick={() => handleDelete(prop.id)}>Eliminar</button>
                     </td>
                   </tr>

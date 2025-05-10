@@ -15,7 +15,7 @@
 
 
 .admin-form-container {
-    max-width: 500px;
+    max-width: 900px;
     margin: 2rem auto;
     padding: 2rem;
     border-radius: 10px;
@@ -25,10 +25,10 @@
   
   .propiedades-filtros {
     gap: 1rem;
-    margin-bottom: 1rem;
+    
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 15px;
     font-size: 1rem;
     min-width: 200px;
     background-color: #f8f8f8;
@@ -45,7 +45,17 @@
     width: 100%;
     margin-bottom: 1rem;
     padding: 0.8rem;
-    border-radius: 6px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  
+  .admin-form-container select {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border-radius: 15px;
     border: 1px solid #ccc;
     font-size: 1rem;
   }
@@ -56,7 +66,7 @@
     border: none;
     padding: 0.8rem 1.5rem;
     font-weight: bold;
-    border-radius: 6px;
+    border-radius: 15px;
     cursor: pointer;
   }
   

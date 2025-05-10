@@ -1,3 +1,5 @@
+
+
 .spinner {
   width: 48px;
   height: 48px;
@@ -130,24 +132,66 @@
     font-weight: bold;
     color: #263d23;
   }
-  
+
   .propiedades-filtros {
-    display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
+    display: flex;
+  flex-wrap: wrap;
+border-radius: 15px;
+  gap: 1rem;
+  padding: 1;
+  margin: 1;
   }
+    
   
   .propiedades-filtros select {
+    min-width: 160px;
     padding: 0.6rem 1rem;
-    border-radius: 6px;
+    border-radius: 15px;
     border: 1px solid #ccc;
     font-size: 1rem;
     background-color: white;
+    box-sizing: border-box;
+  }
+
+  
+  .propiedades-filtros input {
+    min-width: 160px;
+    padding: 0.6rem 1rem;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: white;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 550px) {
+   
   }
   
+  
+  @media screen and (max-width: 550px) {
 
+    .propiedades-filtros {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+    }
+  
+    .propiedades-filtros select,
+    .propiedades-filtros input,
+    .reset-filtros-btn {
+      width: 100%;
+    }
+    .reset-filtros-btn {
+      width: 100%;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+    }
+  }
+
+  
   @media screen and (max-width: 330px) {
     .propiedades-section {
       padding: 1rem;

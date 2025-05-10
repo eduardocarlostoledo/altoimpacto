@@ -1,4 +1,49 @@
+
+.whatsapp-btn {
+  background-color: #25d366;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5c;
+}
+
+.descripcion-plan,
+.detalle-plan {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-left: 4px solid #c69e5d;
+}
+
+.detalle-plan p {
+  white-space: pre-line;
+}
 /* Contenedor principal */
+
+.btn-volver {
+  background-color: #eee;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-volver:hover {
+  background-color: #ddd;
+}
+
+
 .detalle-propiedad-container {
     
     max-width: 1200px;

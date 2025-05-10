@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import '../styles/DetallePropiedad.css';
 const API = import.meta.env.VITE_API_URL;
+
 const DetallePropiedad = () => {
   
   const { id } = useParams();
   const [propiedad, setPropiedad] = useState(null);
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
+    
+
+    window.scrollTo(0, 0); // ✅ Llevar la vista al top
     const fetchPropiedad = async () => {
       try {
         const res = await axios.get(`${API}/api/propiedades/${id}`);
@@ -37,13 +41,19 @@ const DetallePropiedad = () => {
         <meta name="description" content={propiedad.descripcion?.slice(0, 150)} />
       </Helmet>
 
+      <button className="btn-volver" onClick={() => navigate(-1)}>
+  ⬅ Volver
+</button>
+
+
       <div className="galeria-imagenes">
   {propiedad.imagenes?.map((img, index) => (
     <img key={index} src={img} alt={`Imagen ${index + 1}`} className="detalle-imagen" />
   ))}
 </div>
       <h1>{propiedad.titulo}</h1>
-      <h2>{propiedad.tipo} en {propiedad.zona}</h2>
+      <h2>{propiedad.tipo} en {propiedad.operacion}</h2>
+      <p><strong>Ubicación:</strong> {propiedad.zona_provincia} - {propiedad.zona_municipio} - {propiedad.zona_localidad} </p>
       <p>{propiedad.descripcion}</p>
       {propiedad.precio && <h3>Precio: U$S {propiedad.precio}</h3>}
 

@@ -9,7 +9,11 @@ import Footer from '@/components/Footer';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import Contact from './components/contact.jsx';
 import DetallePropiedad from './components/DetallePropiedad.jsx';
+
 import ListarPropiedades from "../src/components/ListarPropiedades.jsx";
+import PlanViviendaList from './components/PlanViviendaList.jsx';
+
+import DetallePlan from './components/DetallePlan.jsx';
 
 // Configura GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -61,6 +65,12 @@ function App() {
               <Route path="*" element={<h1>404 - Página no encontrada</h1>} />              
               <Route path="/administrar-propiedades" element={<ListarPropiedades/>}/>
               <Route path="/propiedades/:id" element={<DetallePropiedad />} />
+
+              <Route path="/planes/:id" element={<DetallePlan />} />
+              <Route path="/administrar-planes" element={<PlanViviendaList />} />
+              
+              
+
             </Routes>
           </Suspense>
         </main>

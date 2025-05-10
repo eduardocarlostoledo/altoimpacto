@@ -1,6 +1,15 @@
 
 /* InmobiliariaHero.css */
 
+.higligth-hero-constructora {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 900 !important;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .inmobiliaria-hero {	
   position: relative;
     height: 100vh;
@@ -178,6 +187,16 @@
   
 
   @media (max-width: 768px) {
+
+    .higligth-hero-constructora {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 900 !important;
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
     .inmobiliaria-hero-content h1 {
       font-size: 2.5rem;
     }

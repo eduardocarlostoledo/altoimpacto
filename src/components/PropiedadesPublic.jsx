@@ -137,8 +137,9 @@ const PropiedadesPublic = () => {
 
         {(tipo || zona || operacion || precioMaximo || rangoPrecioMin || rangoPrecioMax) && (
           <button onClick={handleResetFilters} className="reset-filtros-btn">
-            Limpiar Filtros
-          </button>
+  ✖ Limpiar Filtros
+</button>
+
         )}
       </div>
 
