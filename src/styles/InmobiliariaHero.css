@@ -69,6 +69,7 @@
   }
    */
   .inmobiliaria-hero-content {
+    margin-top: 100px;
     position: relative;
     z-index: 2;
     max-width: 1200px;
