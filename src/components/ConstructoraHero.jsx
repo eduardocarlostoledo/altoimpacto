@@ -15,7 +15,7 @@ import constructorast2 from "../img/constructorast2.webp";
 import constructorast3 from "../img/constructorast3.jpg";
 import constructorast4 from "../img/constructorast4.jpg";
 import Viviendas from "./Viviendas";
-
+import Construcciones from "./Construcciones";
 
 
 
@@ -128,6 +128,7 @@ const ConstructoraHero = () => {
       <FeatureCardGrid features={featuresConstructora} onCardClick={handleClick} />
 
       <Viviendas onCardClick={handlePropertyClick} />
+      <Construcciones onCardClick={handlePropertyClick} />
         
       <div>
         <StorytellingSection

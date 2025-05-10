@@ -14,6 +14,7 @@ import ListarPropiedades from "../src/components/ListarPropiedades.jsx";
 import PlanViviendaList from './components/PlanViviendaList.jsx';
 
 import DetallePlan from './components/DetallePlan.jsx';
+import DetalleModelo from './components/DetalleModeloConstruccion.jsx';
 
 // Configura GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -32,10 +33,6 @@ function App() {
       force3D: true,
       nullTargetWarn: false,
     });
-
-    // // Configuración inicial de estilos
-    // document.body.style.backgroundColor = '#ffffff';
-    // document.body.style.color = '#333333';
   }, []);
 
   return (
@@ -63,13 +60,14 @@ function App() {
               <Route path="/inmobiliaria" element={<InmobiliariaHero />} />
               <Route path="/contacto" element={<Contact />} />
               <Route path="*" element={<h1>404 - Página no encontrada</h1>} />              
+              
               <Route path="/administrar-propiedades" element={<ListarPropiedades/>}/>
               <Route path="/propiedades/:id" element={<DetallePropiedad />} />
 
               <Route path="/planes/:id" element={<DetallePlan />} />
               <Route path="/administrar-planes" element={<PlanViviendaList />} />
               
-              
+              <Route path="/construcciones/:id" element= {<DetalleModelo />} />
 
             </Routes>
           </Suspense>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../styles/Admin.css';
 
 const API = import.meta.env.VITE_API_URL;
-const tiposPlan = ['CLÁSICO', 'PLUS', 'FAMILIAR', 'EXPRESS', 'JÓVENES', 'EMPRESAS'];
+const tiposPlan = ['CLÁSICO', 'EXPRESS'];
 
 const AdminPlanes = ({ planEdit, onChange }) => {
   const [formData, setFormData] = useState({

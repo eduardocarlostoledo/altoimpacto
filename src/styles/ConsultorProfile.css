@@ -55,3 +55,9 @@
     color: #c69e5d;
   }
   
+  @media (max-width: 768px) {
+    
+    .consultor-info {
+      text-align: left;
+    }
+  }

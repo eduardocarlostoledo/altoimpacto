@@ -123,7 +123,7 @@ const ConsultorProfile = () => {
               <strong>Capacitación y Formación:</strong> Diseñar y facilitar
               talleres de desarrollo personal y profesional, liderazgo, trabajo
               en equipo o habilidades blandas las que son cruciales para crear
-              un ambiente laboral colaborativo y productivo. .
+              un ambiente laboral colaborativo y productivo.
             </li>
             <li>
               <strong>Mentoría:</strong> Ofrecemos programas de mentoría para
@@ -151,7 +151,7 @@ const ConsultorProfile = () => {
               diseñando programas de sucesión o planes de carrera.
             </li>
             <li>
-              <strong>Facilitador de Dinámicas de Grupo</strong>Conducir
+              <strong>Facilitador de Dinámicas de Grupo</strong>{" "}Conducir
               sesiones grupales para resolver conflictos, fomentar la
               creatividad o mejorar la comunicación entre equipos.
             </li>
@@ -168,8 +168,8 @@ const ConsultorProfile = () => {
             <li>
               <strong>Selección de Capital Humano</strong> Realizamos todo el
               proceso de selección de personal de cualquier área, tanto
-              administrativo como Jerarquico, asi también de operarios,
-              Limpieza, Personal Domestico y Niñeras.
+              administrativo como Jerárquico, asi también de operarios,
+              Limpieza, Personal Doméstico y Niñeras.
             </li>
           </ul>
 
