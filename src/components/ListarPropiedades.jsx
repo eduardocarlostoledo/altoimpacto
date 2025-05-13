@@ -74,6 +74,19 @@ const PropiedadList = () => {
 
   return (
     <div className="prop-list-container">
+      
+
+      <div className="admin-form-wrapper" ref={adminRef}>
+        <Admin
+          key={editando?.id || "nuevo"}
+          propiedadEdit={editando}
+          onChange={() => {
+            fetchPropiedades();
+            setEditando(null);
+          }}
+        />
+      </div>
+
       <h2>Administración de Propiedades</h2>
 
       <div className="filtros-admin">
@@ -99,17 +112,6 @@ const PropiedadList = () => {
               zona_municipio: municipio || "",
               zona_localidad: localidad || "",
             }));
-          }}
-        />
-      </div>
-
-      <div className="admin-form-wrapper" ref={adminRef}>
-        <Admin
-          key={editando?.id || "nuevo"}
-          propiedadEdit={editando}
-          onChange={() => {
-            fetchPropiedades();
-            setEditando(null);
           }}
         />
       </div>
@@ -146,7 +148,7 @@ const PropiedadList = () => {
                     <td>{prop.precio ? `$${prop.precio}` : "Consultar"}</td>
                      <td>
                     {prop.imagenes?.length > 0 ? (
-                      <img src={prop.imagenes[0]} alt="img" style={{ width: '60px', borderRadius: '5px' }} />
+                      <img src={prop?.imagenes[0]} alt="img" style={{ width: '60px', borderRadius: '5px' }} />
                     ) : '—'}
                   </td>
                     <td>
