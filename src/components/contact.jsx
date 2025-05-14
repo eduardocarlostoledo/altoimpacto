@@ -140,7 +140,7 @@ const Contact = ({ data }) => {
               <div className="info-icon"><i className="fas fa-map-marker-alt"></i></div>
               <div className="info-content">
                 <h4>Dirección</h4>
-                <p>C.52 / 22 – Posadas, Misiones, Argentina</p>
+                <p> La Plata, Buenos Aires, Argentina</p>
               </div>
             </div>
 
@@ -148,7 +148,7 @@ const Contact = ({ data }) => {
               <div className="info-icon"><i className="fas fa-phone-alt"></i></div>
               <div className="info-content">
                 <h4>Teléfono</h4>
-                <p>+54 3764221063</p>
+                <p>2216146117</p>
               </div>
             </div>
 
