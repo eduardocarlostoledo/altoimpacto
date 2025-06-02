@@ -52,10 +52,10 @@ const DetallePropiedad = () => {
   ))}
 </div>
       <h1>{propiedad.titulo}</h1>
-      <h2>{propiedad.tipo} en {propiedad.operacion}</h2>
+      <h2>{propiedad.tipo} EN {propiedad.operacion}</h2>
       <p><strong>Ubicación:</strong> {propiedad.zona_provincia} - {propiedad.zona_municipio} - {propiedad.zona_localidad} </p>
       <p>{propiedad.descripcion}</p>
-      {propiedad.precio && <h3>Precio: U$S {propiedad.precio}</h3>}
+      {propiedad.precio && <h3>PRECIO: U$S {propiedad.precio}</h3>}
 
       <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="whatsapp-btn">
         <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24">

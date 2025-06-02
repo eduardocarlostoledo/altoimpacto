@@ -34,7 +34,7 @@ const featuresServiciosPrestados = [
   {
     image: "https://tasacion.co/wp-content/uploads/2021/12/servicios-de-una-agencia-inmobiliaria.png",
     title: "Inmuebles Disponibles",
-    description: "Casas, Departamentos, Dúplex, Locales, Fondos de comercio, Galpones, Oficinas, Edificios, Terrenos, Campos, Franquicias, Patentes, Cocheras, Propiedades comerciales",
+    description: "Casas, Departamentos, Dúplex, Locales, Fondos de comercio, Galpones, Oficinas, Edificios, Terrenos, Campos, Franquicias, Patentes, Cocheras, Propiedades Comerciales y Proyectos Especiales",
   },
   {
     image: "https://azhogar.com/wp-content/uploads/2023/08/elementos-finanzas-arreglo-cubos-madera-monedas-honorarios-1.webp",
@@ -104,7 +104,7 @@ const InmobiliariaHero = () => {
         stories={[
           {
             img: "https://www.gilmar.es/wp-content/uploads/2022/06/vender-vivienda-de-lujo.jpg",
-            text: `Gestionamos Inmuebles: Casas, Departamentos, Dúplex, Locales, Fondos de Comercio, Galpones, Oficinas, Edificios, Terrenos, Campos, Franquicias, Patentes, Cocheras, Propiedades comerciales.`,
+            text: `Gestionamos Inmuebles: Casas, Departamentos, Dúplex, Locales, Fondos de Comercio, Galpones, Oficinas, Edificios, Terrenos, Campos, Franquicias, Patentes, Cocheras, Propiedades Comerciales y Proyectos Especiales.`,
           },
           {
             img: "https://fotos.perfil.com/2025/01/16/trim/1280/720/aviglion-1949103.jpg",

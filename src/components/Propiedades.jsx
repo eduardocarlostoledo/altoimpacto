@@ -147,14 +147,21 @@ const Propiedades = () => {
     }))
     .filter((grupo) => grupo.propiedades.length > 0);
 
+    const tiposPropiedad = [
+  "CASAS", "DEPARTAMENTOS", "DUPLEX", "LOCALES", "FONDOS DE COMERCIO",
+  "GALPONES", "OFICINAS", "EDIFICIOS", "TERRENOS", "CAMPOS",
+  "FRANQUICIAS", "PATENTES", "COCHERAS", "PROPIEDADES COMERCIALES",
+  "PROYECTOS ESPECIALES", "CAMPOS - PROYECTOS ESPECIALES",
+];
+
+
   return (
     <section className="propiedades-section" ref={sectionRef}>
-      
       <h2 ref={topRef}>Propiedades Disponibles</h2>
 
       <div>
-      <GeorefLocationSelector
-      style={{ display: "flex", gap: "1rem" }}
+        <GeorefLocationSelector
+          style={{ display: "flex", gap: "1rem" }}
           onChange={({ provincia, municipio, localidad }) => {
             setFiltros((prev) => ({
               ...prev,
@@ -167,12 +174,10 @@ const Propiedades = () => {
           }}
         />
       </div>
-      
+
       <div className="propiedades-filtros">
 
-      
-
-        
+        {/* //aca mapeamos los tipos de propiedad disponibles en la DB
         <select name="tipo" value={filtros.tipo} onChange={handleFiltroChange}>
           <option value="">Propiedades</option>
           {tiposUnicos.map((t, i) => (
@@ -180,9 +185,17 @@ const Propiedades = () => {
               {capitalize(t)}
             </option>
           ))}
-        </select>
+        </select> */}
 
-        
+        <select name="tipo" value={filtros.tipo} onChange={handleFiltroChange}>
+  <option value="">Tipo de propiedad</option>
+  {tiposPropiedad.map((tipo, i) => (
+    <option key={i} value={tipo}>
+      {capitalize(tipo.toLowerCase())}
+    </option>
+  ))}
+</select>
+
 
         <select
           name="operacion"
