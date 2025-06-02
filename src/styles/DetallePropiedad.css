@@ -95,7 +95,7 @@
     color: #666;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: justify;
   }
   
   /* Precio destacado */
@@ -128,3 +128,11 @@
     }
   }
   
+
+  @media (max-width: 480px) {
+  .detalle-propiedad-container p {
+    
+    text-align: left;
+  }
+  
+  }
