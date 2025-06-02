@@ -154,6 +154,7 @@ const Propiedades = () => {
   "PROYECTOS ESPECIALES", "CAMPOS - PROYECTOS ESPECIALES",
 ];
 
+const operaciones = ["VENTA", "ALQUILER", "ALQUILER TEMPORAL"];
 
   return (
     <section className="propiedades-section" ref={sectionRef}>
@@ -196,8 +197,21 @@ const Propiedades = () => {
   ))}
 </select>
 
-
         <select
+          name="operacion"
+          value={filtros.operacion}
+          onChange={handleFiltroChange}
+        >
+          <option value="">Operación</option>
+         {operaciones.map((op) => (
+  <option key={op} value={op}>
+    {capitalize(op)}
+  </option>
+))}
+
+        </select>
+
+        {/* <select
           name="operacion"
           value={filtros.operacion}
           onChange={handleFiltroChange}
@@ -208,7 +222,7 @@ const Propiedades = () => {
               {capitalize(op)}
             </option>
           ))}
-        </select>
+        </select> */}
 
         <select
           value={ordenPrecio}
