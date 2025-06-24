@@ -140,7 +140,7 @@ const Contact = ({ data }) => {
               <div className="info-icon"><i className="fas fa-map-marker-alt"></i></div>
               <div className="info-content">
                 <h4>Dirección</h4>
-                <p> La Plata, Buenos Aires, Argentina</p>
+                <p> Av. 13 entre C. 527 y C. 528, B1906 Tolosa, La Plata, Buenos Aires, Argentina</p>
               </div>
             </div>
 
@@ -157,9 +157,10 @@ const Contact = ({ data }) => {
               <div className="info-content">
                 <h4>Email</h4>
                 <ul>
-              <li><a href="mailto:constructora@globalhomegroup.com.ar">constructora@globalhomegroup.com.ar</a></li>
+                  <li><a href="mailto:info@globalhomegroup.com.ar">info@globalhomegroup.com.ar</a></li>
+              {/* <li><a href="mailto:constructora@globalhomegroup.com.ar">constructora@globalhomegroup.com.ar</a></li>
               <li><a href="mailto:inmobiliaria@globalhomegroup.com.ar">inmobiliaria@globalhomegroup.com.ar</a></li>
-              <li><a href="mailto:consultora@globalhomegroup.com.ar">consultora@globalhomegroup.com.ar</a></li>
+              <li><a href="mailto:consultora@globalhomegroup.com.ar">consultora@globalhomegroup.com.ar</a></li> */}
             </ul>
               </div>
             </div>

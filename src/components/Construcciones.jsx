@@ -30,7 +30,7 @@ const Construcciones = () => {
 
   return (
     <section className="propiedades-section">
-      <h2>Modelos de Construcción Disponibles</h2>
+      <h2>Modelos de Construcción Disponibles</h2> 
 
       {loading ? (
         <div className="spinner"></div>
@@ -54,7 +54,7 @@ const Construcciones = () => {
               <div className="prop-info">
                 <h3>{modelo.nombre}</h3>
                 <p className="tipo-zona">{modelo.metrosCuadrados} m² - {modelo.cantidadAmbientes} ambientes</p>
-                <p className="desc">{modelo.descripcion?.slice(0, 100)}...</p>
+                <p className="desc">{modelo.detalle?.slice(0, 100)}...</p>
                 <p className="precio">Valor: ${modelo.valor}</p>
                 <p className="precio">Dormitorios: {modelo.cantidadDormitorios} | Baños: {modelo.cantidadBanios}</p>
               </div>

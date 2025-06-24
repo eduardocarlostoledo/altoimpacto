@@ -11,6 +11,7 @@ const FeatureCardGrid = ({ features = [], onCardClick }) => {
 
   return (
     <div className="featurecardgrid-features">
+      {/* <h3>Además ... </h3> */}
       {features.map((feature, index) => (
         <FeatureCard
           key={index}

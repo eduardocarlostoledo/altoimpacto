@@ -30,7 +30,7 @@ const Viviendas = () => {
 
   return (
     <section className="propiedades-section">
-      <h2>Planes de Vivienda Disponibles</h2>
+      <h2>Planes de Vivienda Disponibles</h2> 
 
       {loading ? (
         <div className="spinner"></div>

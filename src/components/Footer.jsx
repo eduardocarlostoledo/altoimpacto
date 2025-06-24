@@ -24,11 +24,10 @@ const Footer = () => {
             <h4>Contacto</h4>
 
 
-            <ul>
-              <li><a href="mailto:constructora@globalhomegroup.com.ar">constructora@globalhomegroup.com.ar</a></li>
+            <li><a href="mailto:info@globalhomegroup.com.ar">info@globalhomegroup.com.ar</a></li>
+              {/* <li><a href="mailto:constructora@globalhomegroup.com.ar">constructora@globalhomegroup.com.ar</a></li>
               <li><a href="mailto:inmobiliaria@globalhomegroup.com.ar">inmobiliaria@globalhomegroup.com.ar</a></li>
-              <li><a href="mailto:consultora@globalhomegroup.com.ar">consultora@globalhomegroup.com.ar</a></li>
-            </ul>
+              <li><a href="mailto:consultora@globalhomegroup.com.ar">consultora@globalhomegroup.com.ar</a></li> */}
           </div>
         </div>
       </div>
