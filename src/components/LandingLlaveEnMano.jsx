@@ -52,11 +52,11 @@ const LandingLlaveEnMano = () => {
         <div className="info-panel">
           <h2>¿Por qué elegirnos?</h2>
           <ul>
-            <li>✔️ 5 Modelos de diseño sustentable</li>
-            <li>✔️ Precio Fijo en USD</li>
-            <li>✔️ Entrega + Financiación en cuotas</li>
-            <li>✔️ Construcción llave en mano</li>
-            <li>✔️ ¿Sin terreno? ¡Lo conseguimos!</li>
+            <li>✔️  5 modelos elegantes y modernos  diferentes con materiales sustentables.</li>
+            <li>✔️ 60 cuotas en dólares c anticipo del 50 %.</li>
+            <li>✔️ Construcción llave en mano, te olvidas de todo...</li>
+            <li>✔️ El mejor precio del mercado en relación precio calidad, U$800 el mts2 llave en mano...</li>
+            <li>✔️ Si no contas con terreno, despreocúpate, nosotros nos encargamos!!!!.</li>
           </ul>
           <a
             href={whatsappLink}
