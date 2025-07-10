@@ -71,6 +71,16 @@ const Contact = ({ data }) => {
         <div className="contact-header">
           <h2>MANTENGAMOS EL CONTACTO</h2>
           <p>Dejanos un mensaje o consulta y estaremos en comunicación a la brevedad posible.</p>
+
+                    <form action="submit">
+
+            <button href="https://wa.me/542216146117" target="_blank" rel="noopener noreferrer" title="WhatsApp"
+            style={{ backgroundColor: "#25D366", color: "#fff", padding:"1rem 2rem", fontWeight:"600", width:"100%", display:"flex", alignItems:"center", justifyContent:"center"  }} className="whatsapp-btn">
+Whatsapp
+              </button>
+              
+          </form>
+          
         </div>
 
         <div className="contact-content">
@@ -131,7 +141,12 @@ const Contact = ({ data }) => {
                 "Enviar Mensaje"
               )}
             </button>
+
+            
+
           </form>
+
+
 
           <div className="contact-info">
             <h3>Información de Contacto</h3>

@@ -303,7 +303,7 @@
         justify-content: center;
       }
     }
-    @media (max-width: 330px) {
+    @media (max-width: 370px) {
       .contact-section {
         padding: 2rem 0;
       }
