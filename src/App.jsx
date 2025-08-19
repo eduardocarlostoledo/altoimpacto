@@ -16,6 +16,9 @@ import PlanViviendaList from './components/PlanViviendaList.jsx';
 import DetallePlan from './components/DetallePlan.jsx';
 import DetalleModelo from './components/DetalleModeloConstruccion.jsx';
 
+import LandingLlaveEnMano1 from './components/LandingLlaveEnMano1.jsx';
+
+
 // Configura GSAP
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,6 +62,12 @@ function App() {
               <Route path="/constructora" element={<ConstructoraHero />} />
               <Route path="/inmobiliaria" element={<InmobiliariaHero />} />
               <Route path="/contacto" element={<Contact />} />
+              
+              <Route path="/landing-construi" element={<LandingLlaveEnMano1 />} />
+              
+              
+              {/* Rutas para las páginas de la inmobiliaria */}
+
               <Route path="*" element={<h1>404 - Página no encontrada</h1>} />              
               
               <Route path="/administrar-propiedades" element={<ListarPropiedades/>}/>

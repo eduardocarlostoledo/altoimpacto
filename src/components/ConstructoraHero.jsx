@@ -16,7 +16,7 @@ import constructorast3 from "../img/constructorast3.jpg";
 import constructorast4 from "../img/constructorast4.jpg";
 import Viviendas from "./Viviendas";
 import Construcciones from "./Construcciones";
-import LandingLlaveEnMano from "./LandingLlaveEnMano";
+import LandingLlaveEnMano from "./LandingLlaveEnMano1.jsx";
 
 
 
@@ -134,8 +134,12 @@ const ConstructoraHero = () => {
 
       
 
-      <Viviendas onCardClick={handlePropertyClick} />
+      
       <Construcciones onCardClick={handlePropertyClick} />
+
+      <Viviendas onCardClick={handlePropertyClick} />
+
+      
         <FeatureCardGrid features={featuresConstructora} onCardClick={handleClick} />
       <div> 
         <StorytellingSection

@@ -53,11 +53,12 @@
     }
     
     .contact-header p {
-      font-size: 1.1rem;
-      color: #fdffff;
+      font-size: 1.1rem;      
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
+      
+  margin-bottom: 2rem;
     }
     
     /* Contenido principal */
@@ -70,23 +71,7 @@
       margin-bottom: 3rem;
     }
     
-    @media (max-width: 768px) {
-      .contact-content {
-        grid-template-columns: 1fr;
-      }
-  
-      .contact-form{
-        width: 80%;
-      }
-  
-      .contact-info{
-        width: 90%;
-      }
-  
-      .social-links {      
-        width: 80%;
-      }
-    }
+    
     
     /* Formulario */
     .contact-form {
@@ -281,6 +266,25 @@
     }
     
     /* Responsive */
+
+    @media (max-width: 768px) {
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+  
+      /* .contact-form{
+        width: 80%;
+      }
+  
+      .contact-info{
+        width: 90%;
+      } */
+  
+      /* .social-links {      
+        width: 80%;
+      } */
+    }
+    
     @media (max-width: 480px) {
       .contact-header h2 {
         font-size: 2rem;

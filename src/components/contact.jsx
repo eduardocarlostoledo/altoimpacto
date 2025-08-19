@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import "../styles/Contact.css";
 import whatsapp from "../img/whatsapp.svg";
@@ -7,18 +7,18 @@ const Contact = ({ data }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
-    console.log("iniciando envio email", import.meta.env.VITE_SERVICE_ID)
+    console.log("iniciando envio email", import.meta.env.VITE_SERVICE_ID);
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -31,11 +31,11 @@ const Contact = ({ data }) => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          to_email: "info@globalhomegroup.com.ar"
+          to_email: "info@globalhomegroup.com.ar",
         },
         import.meta.env.VITE_PUBLIC_KEY
       );
-      console.log("enviado al admin")
+      console.log("enviado al admin");
 
       // ENVÍO AL CLIENTE
       await emailjs.sendForm(
@@ -44,7 +44,7 @@ const Contact = ({ data }) => {
         e.target,
         import.meta.env.VITE_PUBLIC_KEY
       );
-      console.log("enviado al cliente")
+      console.log("enviado al cliente");
 
       setSubmitStatus({ success: true, message: "Mensaje enviado con éxito!" });
       setFormData({ name: "", email: "", message: "" });
@@ -53,13 +53,16 @@ const Contact = ({ data }) => {
         icon: "success",
         title: "Hemos recibido tu consulta",
         text: "Nos comunicaremos a la brevedad posible",
-        confirmButtonColor: "#3085d6"
+        confirmButtonColor: "#3085d6",
       });
 
       setTimeout(() => setSubmitStatus(null), 5000);
     } catch (error) {
       console.error("Error al enviar el mensaje:", error);
-      setSubmitStatus({ success: false, message: "Error al enviar el mensaje. Intente nuevamente." });
+      setSubmitStatus({
+        success: false,
+        message: "Error al enviar el mensaje. Intente nuevamente.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -69,18 +72,33 @@ const Contact = ({ data }) => {
     <section id="contact" className="contact-section">
       <div className="contact-container">
         <div className="contact-header">
-          <h2>MANTENGAMOS EL CONTACTO</h2>
-          <p>Dejanos un mensaje o consulta y estaremos en comunicación a la brevedad posible.</p>
+          <h2>Construí la casa de tus sueños</h2>
+          <p>
+            Tenés dudas o querés tu presupuesto? Hablá directo con nosotros por{" "}
+            <strong>WhatsApp</strong> y te respondemos en menos de 5 minutos. Si
+            preferís, completá el formulario de abajo y nosotros nos comunicamos
+            con vos.
+          </p>
 
-                    <form action="submit">
-
-            <button href="https://wa.me/542216146117" target="_blank" rel="noopener noreferrer" title="WhatsApp"
-            style={{ backgroundColor: "#25D366", color: "#fff", padding:"1rem 2rem", fontWeight:"600", width:"100%", display:"flex", alignItems:"center", justifyContent:"center"  }} className="whatsapp-btn">
-Whatsapp
-              </button>
-              
-          </form>
-          
+          <a
+            href="https://wa.me/542216146117"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="WhatsApp"
+            style={{
+              backgroundColor: "#25D366",
+              color: "#fff",
+              padding: "1rem 2rem",
+              fontWeight: "600",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            className="whatsapp-btn"
+          >
+            Whatsapp
+          </a>
         </div>
 
         <div className="contact-content">
@@ -127,12 +145,20 @@ Whatsapp
             </div>
 
             {submitStatus && (
-              <div className={`submit-status ${submitStatus.success ? "success" : "error"}`}>
+              <div
+                className={`submit-status ${
+                  submitStatus.success ? "success" : "error"
+                }`}
+              >
                 {submitStatus.message}
               </div>
             )}
 
-            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={isSubmitting}
+            >
               {isSubmitting ? (
                 <>
                   <span className="spinner"></span> Enviando...
@@ -141,26 +167,29 @@ Whatsapp
                 "Enviar Mensaje"
               )}
             </button>
-
-            
-
           </form>
-
-
 
           <div className="contact-info">
             <h3>Información de Contacto</h3>
 
             <div className="info-item">
-              <div className="info-icon"><i className="fas fa-map-marker-alt"></i></div>
+              <div className="info-icon">
+                <i className="fas fa-map-marker-alt"></i>
+              </div>
               <div className="info-content">
                 <h4>Dirección</h4>
-                <p> Av. 13 entre C. 527 y C. 528, B1906 Tolosa, La Plata, Buenos Aires, Argentina</p>
+                <p>
+                  {" "}
+                  Av. 13 entre C. 527 y C. 528, B1906 Tolosa, La Plata, Buenos
+                  Aires, Argentina
+                </p>
               </div>
             </div>
 
             <div className="info-item">
-              <div className="info-icon"><i className="fas fa-phone-alt"></i></div>
+              <div className="info-icon">
+                <i className="fas fa-phone-alt"></i>
+              </div>
               <div className="info-content">
                 <h4>Teléfono</h4>
                 <p>2216146117</p>
@@ -168,46 +197,76 @@ Whatsapp
             </div>
 
             <div className="info-item">
-              <div className="info-icon"><i className="fas fa-envelope"></i></div>
+              <div className="info-icon">
+                <i className="fas fa-envelope"></i>
+              </div>
               <div className="info-content">
                 <h4>Email</h4>
                 <ul>
-                  <li><a href="mailto:info@globalhomegroup.com.ar">info@globalhomegroup.com.ar</a></li>
-              {/* <li><a href="mailto:constructora@globalhomegroup.com.ar">constructora@globalhomegroup.com.ar</a></li>
+                  <li>
+                    <a href="mailto:info@globalhomegroup.com.ar">
+                      info@globalhomegroup.com.ar
+                    </a>
+                  </li>
+                  {/* <li><a href="mailto:constructora@globalhomegroup.com.ar">constructora@globalhomegroup.com.ar</a></li>
               <li><a href="mailto:inmobiliaria@globalhomegroup.com.ar">inmobiliaria@globalhomegroup.com.ar</a></li>
               <li><a href="mailto:consultora@globalhomegroup.com.ar">consultora@globalhomegroup.com.ar</a></li> */}
-            </ul>
+                </ul>
               </div>
             </div>
 
-
             <div className="social-links">
               {data?.facebook && (
-                <a href={data.facebook} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={data.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-facebook-f"></i>
                 </a>
               )}
 
-              <a href="https://wa.me/542216146117" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+              <a
+                href="https://wa.me/542216146117"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="WhatsApp"
+              >
                 <img
                   src={whatsapp}
                   alt="WhatsApp"
-                  style={{ width: "40px", height: "40px", filter: "brightness(1.1)" }}
+                  style={{
+                    width: "80px",
+                    height: "80px",
+                    filter: "brightness(1.1)",
+                  }}
                 />
               </a>
 
               {data?.instagram && (
-                <a href={data.instagram} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={data.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fab fa-instagram"></i>
                 </a>
               )}
 
               {data?.youtube && (
-                <a href={data.youtube} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={data.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
                     alt="YouTube"
-                    style={{ marginLeft: "40px", width: "80px", height: "24px" }}
+                    style={{
+                      marginLeft: "40px",
+                      width: "80px",
+                      height: "24px",
+                    }}
                   />
                 </a>
               )}

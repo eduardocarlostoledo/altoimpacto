@@ -1,6 +1,6 @@
 .landing-container {
   max-width: 1200px;
-  margin: 4rem auto;
+  margin: 6rem auto;
   padding: 2rem;
   background: #fff;
   border-radius: 12px;
@@ -80,7 +80,7 @@
 
 .carousel-img {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -127,3 +127,76 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* === FIX CARRUSEL: Evitar desbordes y mantener marco === */
+.carousel-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;            /* clave: clippea cualquier overflow (incluye hover) */
+  border-radius: 8px;
+}
+
+/* En modo “una tarjeta a la vez”, el min-width empuja el ancho. Lo anulamos aquí. */
+.carousel-wrapper .carousel-card {
+  width: 100%;
+  min-width: 0;                /* evita overflow horizontal por min-width:280px */
+  max-width: 900px;            /* opcional: limita el ancho en desktop amplio */
+  margin: 0 auto;
+  transform-origin: center;    /* si hay hover-scale, que no empuje a lados */
+}
+
+/* La imagen nunca debe estirarse fuera del card */
+.carousel-wrapper .carousel-img {
+  display: block;
+  width: 100%;
+  height: 100%;               /* conservamos tu alto en desktop */
+  object-fit: cover;
+}
+
+/* En tablet y mobile usamos un marco por relación de aspecto, no altura fija */
+@media (max-width: 1024px) {
+  .carousel-wrapper .carousel-img {
+    height: auto;
+    aspect-ratio: 16 / 9;      /* marco consistente y sin desbordes */
+  }
+}
+
+/* En móviles pequeños, reducimos “efecto zoom” que provoca overflow visual */
+@media (max-width: 480px) {
+  .carousel-card:hover {
+    transform: none;           /* desactiva scale en hover para móviles */
+  }
+}
+
+/* === GRID MOBILE/TABLET: mantén todo centrado y al 100% === */
+@media (max-width: 768px) {
+  .landing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+  .info-panel,
+  .carousel-wrapper {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
+/* === “NUMBER”/CTA FIJA AL PIE: no depende del contenedor ===
+   Usa esta clase en el bloque del número o tu CTA (tel/WhatsApp) para fijarlo abajo.
+   Ej.: <div class="sticky-bottom-number">221 614 6117</div> */
+.sticky-bottom-number {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  background: #263d23;         /* combina con tu paleta */
+  color: #fff;
+  padding: .8rem 1rem;
+  text-align: center;
+  z-index: 1000;               /* por encima del contenido */
+  box-shadow: 0 -6px 18px rgba(0,0,0,.12);
+}
+
+/* Para que el contenido no quede tapado por la barra fija */
+body { padding-bottom: 64px; } /* ajusta a la altura real de tu barra */
