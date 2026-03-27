@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 import Swal from "sweetalert2";
 import "../styles/Contact.css";
 import whatsapp from "../img/whatsapp.svg";
+
+const RATE_LIMIT_MS = 60000;
 const Contact = ({ data }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -11,6 +14,7 @@ const Contact = ({ data }) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const recaptchaRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,12 +22,33 @@ const Contact = ({ data }) => {
   };
 
   const handleSubmit = async (e) => {
-    console.log("iniciando envio email", import.meta.env.VITE_SERVICE_ID);
     e.preventDefault();
+
+    const lastSent = sessionStorage.getItem("ghg_last_contact");
+    if (lastSent && Date.now() - parseInt(lastSent) < RATE_LIMIT_MS) {
+      Swal.fire({
+        icon: "warning",
+        title: "Espera un momento",
+        text: "Por favor aguardá 1 minuto antes de enviar otro mensaje.",
+        confirmButtonColor: "#3085d6",
+      });
+      return;
+    }
+
+    const captchaToken = recaptchaRef.current?.getValue();
+    if (!captchaToken) {
+      Swal.fire({
+        icon: "warning",
+        title: "Verificación requerida",
+        text: "Por favor completá el CAPTCHA antes de enviar.",
+        confirmButtonColor: "#3085d6",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      // ENVÍO AL ADMIN
       await emailjs.send(
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID_CLIENT,
@@ -35,16 +60,16 @@ const Contact = ({ data }) => {
         },
         import.meta.env.VITE_PUBLIC_KEY
       );
-      console.log("enviado al admin");
 
-      // ENVÍO AL CLIENTE
       await emailjs.sendForm(
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID_CLIENT,
         e.target,
         import.meta.env.VITE_PUBLIC_KEY
       );
-      console.log("enviado al cliente");
+
+      sessionStorage.setItem("ghg_last_contact", Date.now().toString());
+      recaptchaRef.current?.reset();
 
       setSubmitStatus({ success: true, message: "Mensaje enviado con éxito!" });
       setFormData({ name: "", email: "", message: "" });
@@ -57,8 +82,8 @@ const Contact = ({ data }) => {
       });
 
       setTimeout(() => setSubmitStatus(null), 5000);
-    } catch (error) {
-      console.error("Error al enviar el mensaje:", error);
+    } catch {
+      recaptchaRef.current?.reset();
       setSubmitStatus({
         success: false,
         message: "Error al enviar el mensaje. Intente nuevamente.",
@@ -142,6 +167,13 @@ const Contact = ({ data }) => {
                   placeholder="Escriba su mensaje aquí..."
                 ></textarea>
               </div>
+            </div>
+
+            <div style={{ margin: "1rem 0" }}>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+              />
             </div>
 
             {submitStatus && (

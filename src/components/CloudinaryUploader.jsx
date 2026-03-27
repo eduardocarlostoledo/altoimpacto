@@ -6,7 +6,7 @@ import { auto } from '@cloudinary/url-gen/actions/resize';
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
 import '../styles/CloudinaryUploader.css';
 
-const cld = new Cloudinary({ cloud: { cloudName: 'djejwcfdc' } });
+const cld = new Cloudinary({ cloud: { cloudName: import.meta.env.VITE_CLOUD_NAME } });
 
 const CloudinaryUploader = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -27,7 +27,7 @@ const CloudinaryUploader = () => {
 
     try {
       const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/djejwcfdc/image/upload',
+        `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUD_NAME}/image/upload`,
         formData
       );
       setUploadedImagePublicId(response.data.public_id);

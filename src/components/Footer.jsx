@@ -33,6 +33,10 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Global Home Group. Todos los derechos reservados.</p>
+        <p style={{ marginTop: '0.4rem', fontSize: '0.8rem' }}>
+          <a href="/politica-de-privacidad" style={{ color: '#aaa', marginRight: '1rem' }}>Política de Privacidad</a>
+          <a href="/no-guardamos-datos" style={{ color: '#aaa' }}>¿Guardamos tus datos?</a>
+        </p>
       </div>
     </footer>
   );

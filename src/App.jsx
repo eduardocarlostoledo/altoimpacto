@@ -17,7 +17,11 @@ import DetallePlan from './components/DetallePlan.jsx';
 import DetalleModelo from './components/DetalleModeloConstruccion.jsx';
 
 import LandingLlaveEnMano1 from './components/LandingLlaveEnMano1.jsx';
-
+import ProtectedRoute from './components/ProtectedRoute.jsx';
+import AdminLogin from './components/AdminLogin.jsx';
+import PrivacyPolicy from './components/PrivacyPolicy.jsx';
+import NoDataPolicy from './components/NoDataPolicy.jsx';
+import CookieConsent from './components/CookieConsent.jsx';
 
 // Configura GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -40,8 +44,8 @@ function App() {
 
   return (
     <Router>
-            <ScrollToTop /> {/* 👈 Este es el truco */}
-
+      <ScrollToTop />
+      <CookieConsent />
       <FixOpacity />
       <div className="app-container" style={{
         backgroundColor: '#ffffff',
@@ -49,9 +53,8 @@ function App() {
         minHeight: '100vh'
       }}>
         <Navbar />
-        
+
         <main className="main-content" style={{
-          
           backgroundColor: '#ffffff',
           opacity: '1 !important'
         }}>
@@ -62,22 +65,28 @@ function App() {
               <Route path="/constructora" element={<ConstructoraHero />} />
               <Route path="/inmobiliaria" element={<InmobiliariaHero />} />
               <Route path="/contacto" element={<Contact />} />
-              
+
               <Route path="/landing-construi" element={<LandingLlaveEnMano1 />} />
-              
-              
-              {/* Rutas para las páginas de la inmobiliaria */}
 
-              <Route path="*" element={<h1>404 - Página no encontrada</h1>} />              
-              
-              <Route path="/administrar-propiedades" element={<ListarPropiedades/>}/>
+              {/* Detalle público */}
               <Route path="/propiedades/:id" element={<DetallePropiedad />} />
-
               <Route path="/planes/:id" element={<DetallePlan />} />
-              <Route path="/administrar-planes" element={<PlanViviendaList />} />
-              
-              <Route path="/construcciones/:id" element= {<DetalleModelo />} />
+              <Route path="/construcciones/:id" element={<DetalleModelo />} />
 
+              {/* Rutas protegidas */}
+              <Route path="/admin-login" element={<AdminLogin />} />
+              <Route path="/administrar-propiedades" element={
+                <ProtectedRoute><ListarPropiedades /></ProtectedRoute>
+              } />
+              <Route path="/administrar-planes" element={
+                <ProtectedRoute><PlanViviendaList /></ProtectedRoute>
+              } />
+
+              {/* GDPR */}
+              <Route path="/politica-de-privacidad" element={<PrivacyPolicy />} />
+              <Route path="/no-guardamos-datos" element={<NoDataPolicy />} />
+
+              <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
             </Routes>
           </Suspense>
         </main>
