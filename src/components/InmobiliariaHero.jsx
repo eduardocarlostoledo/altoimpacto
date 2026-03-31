@@ -75,7 +75,7 @@ const InmobiliariaHero = () => {
   
   // 👇 Al hacer click en una propiedad real
   const handlePropertyClick = (prop) => {
-    console.log(prop);
+    
     navigate(`/propiedades/${prop.id}`);
   };
 

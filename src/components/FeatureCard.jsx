@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/FeatureCard.css'; // Asegúrate de que la ruta sea correcta
 
 const FeatureCard = ({ baner, image, title, description, onClick  }) => {
-    //console.log(image, title, description);
+    
   return (
     <div className="featurecard-feature-card" onClick={onClick} style={{ cursor: 'pointer' }}>
               {baner && <div className="feature-card-baner">{baner}</div>}

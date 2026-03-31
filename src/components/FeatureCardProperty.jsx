@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/FeatureCard.css"; // Asegúrate de que la ruta sea correcta
 
 const FeatureCardProperty = ({ id, titulo, tipo, zona, descripcion, precio, imagen, onClick }) => {
-  console.log( id, titulo, tipo, zona, descripcion, precio, imagen);
+  
   return (
     <div
       className="featurecard-feature-card"

@@ -5,7 +5,7 @@ import '../styles/FeatureCardGrid.css';
 
 // FeatureCardGrid.jsx
 const LinkComponente = ({ features, onCardClick }) => {
-    console.log(features);
+    
     if (!features.length) {
         return null;
       }
