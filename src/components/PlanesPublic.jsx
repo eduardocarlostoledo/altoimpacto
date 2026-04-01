@@ -12,7 +12,7 @@ const PlanesPublic = () => {
     const fetchPlanes = async () => {
       try {
         const res = await axios.get(`${API}/api/planes`);
-        setPlanes(res.data || []);
+        setPlanes(res.data.planes || []);
       } catch (err) {
         console.error('Error al cargar planes', err);
       }
@@ -27,18 +27,18 @@ const PlanesPublic = () => {
       <div className="planes-grid">
         {planes.map(plan => (
           <div key={plan.id} className="plan-card">
-            {plan.imagenes?.[0]?.url && (
+            {plan.imagenDestacada && (
               <img
-                src={plan.imagenes[0].url}
-                alt={`Imagen del plan ${plan.nombre}`}
+                src={plan.imagenDestacada}
+                alt={`Imagen del plan ${plan.plan}`}
                 className="plan-img"
               />
             )}
             <div className="plan-content">
-              <h3 className="plan-nombre">{plan.nombre}</h3>
+              <h3 className="plan-nombre">{plan.plan}</h3>
               <p className="plan-descripcion">{plan.descripcion?.slice(0, 100)}...</p>
               <p className="plan-precio">
-                {plan.precio ? `$${plan.precio.toLocaleString('es-AR')}` : 'Consultar'}
+                {plan.valorNeto ? `$${plan.valorNeto.toLocaleString('es-AR')}` : 'Consultar'}
               </p>
             </div>
           </div>
