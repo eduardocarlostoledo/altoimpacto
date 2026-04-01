@@ -1,22 +1,26 @@
 import { useState, useEffect } from 'react';
 
 const COOKIE_KEY = 'ghg_cookie_consent';
+const ANALYTICS_ID = 'G-QBCGSFN34F';
 
 function loadGTM() {
   if (document.getElementById('gtm-script')) return;
+
   const script = document.createElement('script');
   script.id = 'gtm-script';
   script.async = true;
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QBCGSFN34F';
-  document.head.appendChild(script);
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_ID}`;
 
   script.onload = () => {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-QBCGSFN34F');
+    if (document.getElementById('gtm-init-script')) return;
+
+    const initScript = document.createElement('script');
+    initScript.id = 'gtm-init-script';
+    initScript.src = '/analytics-init.js';
+    document.head.appendChild(initScript);
   };
+
+  document.head.appendChild(script);
 }
 
 const CookieConsent = () => {
