@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import apiClient from "@/lib/apiClient";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/LandingLlaveEnMano.css";
 
-const API = import.meta.env.VITE_API_URL;
 
 const LandingLlaveEnMano = () => {
   const [modelos, setModelos] = useState([]);
@@ -19,7 +18,7 @@ const LandingLlaveEnMano = () => {
     const fetchConstrucciones = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`${API}/api/construcciones`);
+        const res = await apiClient.get("/api/construcciones");
         setModelos(res.data.construcciones || []);
       } catch (err) {
         console.error("Error al obtener modelos de construcción", err);

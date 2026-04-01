@@ -1,9 +1,8 @@
 // src/components/PlanesPublic.jsx
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import apiClient from '@/lib/apiClient';
 import '../styles/PlanesPublic.css';
 
-const API = import.meta.env.VITE_API_URL;
 
 const PlanesPublic = () => {
   const [planes, setPlanes] = useState([]);
@@ -11,7 +10,7 @@ const PlanesPublic = () => {
   useEffect(() => {
     const fetchPlanes = async () => {
       try {
-        const res = await axios.get(`${API}/api/planes`);
+        const res = await apiClient.get('/api/planes');
         setPlanes(res.data.planes || []);
       } catch (err) {
         console.error('Error al cargar planes', err);

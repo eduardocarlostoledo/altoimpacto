@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '@/lib/apiClient';
 import { Helmet } from 'react-helmet';
 import '../styles/DetallePropiedad.css';
 
-const API = import.meta.env.VITE_API_URL;
 
 const DetalleModelo = () => {
   const { id } = useParams();
@@ -17,7 +16,7 @@ const DetalleModelo = () => {
 
     const fetchModelo = async () => {
       try {
-        const res = await axios.get(`${API}/api/construcciones/${id}`);
+        const res = await apiClient.get(`/api/construcciones/${id}`);
         setModelo(res.data);
       } catch (err) {
         console.error('Error al obtener el modelo', err);

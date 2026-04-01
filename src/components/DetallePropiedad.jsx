@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '@/lib/apiClient';
 import { Helmet } from 'react-helmet';
 import '../styles/DetallePropiedad.css';
-const API = import.meta.env.VITE_API_URL;
 
 const DetallePropiedad = () => {
   
@@ -17,7 +16,7 @@ const DetallePropiedad = () => {
     window.scrollTo(0, 0); // ✅ Llevar la vista al top
     const fetchPropiedad = async () => {
       try {
-        const res = await axios.get(`${API}/api/propiedades/${id}`);
+        const res = await apiClient.get(`/api/propiedades/${id}`);
         setPropiedad(res.data);
       } catch (err) {
         console.error('Error al obtener propiedad', err);

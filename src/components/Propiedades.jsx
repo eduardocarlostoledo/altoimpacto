@@ -1,11 +1,9 @@
 // ✅ Propiedades.jsx listado de propiedades al publico
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState, useRef } from "react";
-import axios from "axios";
+import apiClient from "@/lib/apiClient";
 import "../styles/PropiedadesPublic.css";
 import GeorefLocationSelector from "./GeorefLocationSelector";
-
-const API = import.meta.env.VITE_API_URL;
 
 const capitalize = (str) => {
   if (!str) return "";
@@ -97,7 +95,7 @@ const Propiedades = () => {
       query.append("page", page);
       query.append("limit", 12);
 
-      const res = await axios.get(`${API}/api/propiedades?${query.toString()}`);
+      const res = await apiClient.get(`/api/propiedades?${query.toString()}`);
       const props = res.data.propiedades || [];
       setPropiedades(props);
       setTotalPages(res.data.pages || 1);

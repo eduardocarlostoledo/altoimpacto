@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import apiClient from '@/lib/apiClient';
 import '../styles/Admin.css';
-
-const API = import.meta.env.VITE_API_URL;
 
 const AdminConstrucciones = ({ construccionEdit, onChange }) => {
   const [formData, setFormData] = useState({
@@ -81,9 +79,9 @@ const AdminConstrucciones = ({ construccionEdit, onChange }) => {
 
     try {
       setLoading(true);
-      const endpoint = construccionEdit ? `${API}/api/construcciones/${construccionEdit.id}` : `${API}/api/construcciones`;
+      const endpoint = construccionEdit ? `/api/construcciones/${construccionEdit.id}` : '/api/construcciones';
       const method = construccionEdit ? 'put' : 'post';
-      await axios[method](endpoint, data);
+      await apiClient[method](endpoint, data);
       setMensaje(construccionEdit ? 'Construcción actualizada' : 'Construcción creada correctamente');
       setFormData({
         nombre: '', descripcion: '', detalle: '', metrosCuadrados: '', valor: '',

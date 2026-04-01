@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import apiClient from "@/lib/apiClient";
 import GeorefLocationSelector from "./GeorefLocationSelector.jsx";
 import "../styles/Admin.css";
 
-const API = import.meta.env.VITE_API_URL;
 
 const tipos = [
   "CASAS",
@@ -121,12 +120,12 @@ const Admin = ({ propiedadEdit, onChange }) => {
     try {
       setLoading(true);
       const endpoint = propiedadEdit
-        ? `${API}/api/propiedades/${propiedadEdit.id}`
-        : `${API}/api/propiedades`;
+        ? `/api/propiedades/${propiedadEdit.id}`
+        : "/api/propiedades";
 
       const method = propiedadEdit ? "put" : "post";
 
-      await axios({
+      await apiClient({
         method,
         url: endpoint,
         data,

@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import apiClient from "@/lib/apiClient";
 import Admin from "./Admin";
 import "../styles/PropiedadList.css";
 import GeorefLocationSelector from "./GeorefLocationSelector";
-
-const API = import.meta.env.VITE_API_URL;
 
 const tiposPropiedad = [
   "CASAS", "DEPARTAMENTOS", "DUPLEX", "LOCALES", "FONDOS DE COMERCIO",
@@ -37,7 +35,7 @@ const PropiedadList = () => {
       if (filtros.zona_municipio) query.append("zona_municipio", filtros.zona_municipio);
       if (filtros.zona_localidad) query.append("zona_localidad", filtros.zona_localidad);
 
-      const res = await axios.get(`${API}/api/propiedades/filtros?${query.toString()}`);
+      const res = await apiClient.get(`/api/propiedades/filtros?${query.toString()}`);
       setPropiedades(res.data.propiedades || []);
     } catch (err) {
       console.error("Error al obtener propiedades", err);
@@ -53,7 +51,7 @@ const PropiedadList = () => {
     if (!confirmar) return;
 
     try {
-      await axios.delete(`${API}/api/propiedades/${id}`);
+      await apiClient.delete(`/api/propiedades/${id}`);
       fetchPropiedades();
     } catch (err) {
       console.error("Error al eliminar propiedad", err);

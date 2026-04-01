@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import apiClient from "@/lib/apiClient";
 import "../styles/PropiedadesPublic.css";
-
-const API = import.meta.env.VITE_API_URL;
 
 const capitalize = (str) => {
   if (!str) return "";
@@ -46,7 +44,7 @@ const PropiedadesPublic = () => {
       query.append("page", page);
       query.append("limit", 10);
 
-      const res = await axios.get(`${API}/api/propiedades?${query.toString()}`);
+      const res = await apiClient.get(`/api/propiedades?${query.toString()}`);
 
       const isArray = Array.isArray(res.data);
       const propiedades2 = isArray ? res.data : res.data.propiedades || [];

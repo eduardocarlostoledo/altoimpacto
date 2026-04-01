@@ -1,10 +1,9 @@
 // ✅ Viviendas.jsx - listado de planes de vivienda estilo tarjetas tipo Propiedades
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '@/lib/apiClient';
 import '../styles/PropiedadesPublic.css';
 
-const API = import.meta.env.VITE_API_URL;
 
 const Viviendas = () => {
   const navigate = useNavigate();
@@ -16,7 +15,7 @@ const Viviendas = () => {
     const fetchPlanes = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`${API}/api/planes`);
+        const res = await apiClient.get('/api/planes');
         setPlanes(res.data.planes || []);
       } catch (err) {
         console.error('Error al obtener planes de vivienda', err);

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '@/lib/apiClient';
 import { Helmet } from 'react-helmet';
 import '../styles/DetallePropiedad.css';
 
-const API = import.meta.env.VITE_API_URL;
 
 const DetallePlan = () => {
   const { id } = useParams();
@@ -17,7 +16,7 @@ const DetallePlan = () => {
 
     const fetchPlan = async () => {
       try {
-        const res = await axios.get(`${API}/api/planes/${id}`);
+        const res = await apiClient.get(`/api/planes/${id}`);
         
         setPlan(res.data);
         

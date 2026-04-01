@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
+import apiClient from '@/lib/apiClient';
 import AdminPlanes from './AdminPlanes.jsx';
 import AdminConstrucciones from './AdminConstrucciones.jsx';
 import '../styles/PropiedadList.css';
-
-const API = import.meta.env.VITE_API_URL;
 
 const PlanViviendaList = () => {
   const [planes, setPlanes] = useState([]);
@@ -19,7 +17,7 @@ const PlanViviendaList = () => {
   const fetchPlanes = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`${API}/api/planes`);
+      const res = await apiClient.get('/api/planes');
       setPlanes(res.data.planes || []);
     } catch (err) {
       console.error('Error al obtener planes de vivienda', err);
@@ -31,7 +29,7 @@ const PlanViviendaList = () => {
   const fetchConstrucciones = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`${API}/api/construcciones`);
+      const res = await apiClient.get('/api/construcciones');
       setConstrucciones(res.data.construcciones || []);
     } catch (err) {
       console.error('Error al obtener modelos de construcción', err);
@@ -50,7 +48,7 @@ const PlanViviendaList = () => {
     if (!confirmar) return;
 
     try {
-      await axios.delete(`${API}/api/planes/${id}`);
+      await apiClient.delete(`/api/planes/${id}`);
       fetchPlanes();
     } catch (err) {
       console.error('Error al eliminar plan', err);
@@ -62,7 +60,7 @@ const PlanViviendaList = () => {
     if (!confirmar) return;
 
     try {
-      await axios.delete(`${API}/api/construcciones/${id}`);
+      await apiClient.delete(`/api/construcciones/${id}`);
       fetchConstrucciones();
     } catch (err) {
       console.error('Error al eliminar modelo', err);

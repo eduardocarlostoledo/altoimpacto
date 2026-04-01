@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import apiClient from '@/lib/apiClient';
 import '../styles/Admin.css';
 
-const API = import.meta.env.VITE_API_URL;
 const tiposPlan = ['CLÁSICO', 'EXPRESS'];
 
 const AdminPlanes = ({ planEdit, onChange }) => {
@@ -57,9 +56,9 @@ const AdminPlanes = ({ planEdit, onChange }) => {
 
     try {
       setLoading(true);
-      const endpoint = planEdit ? `${API}/api/planes/${planEdit.id}` : `${API}/api/planes`;
+      const endpoint = planEdit ? `/api/planes/${planEdit.id}` : '/api/planes';
       const method = planEdit ? 'put' : 'post';
-      await axios[method](endpoint, data);
+      await apiClient[method](endpoint, data);
       setMensaje(planEdit ? 'Plan actualizado' : 'Plan creado correctamente');
       setFormData({ plan: '', codigo: '', descripcion: '', detalle: '', valorNeto: '', valorCuota: '', tipoPlan: '', duracionMeses: '' });
       setImagenes([]);
