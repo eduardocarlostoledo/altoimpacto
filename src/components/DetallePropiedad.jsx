@@ -48,7 +48,13 @@ const DetallePropiedad = () => {
 
       <div className="galeria-imagenes">
   {propiedad.imagenes?.map((img, index) => (
-    <img key={index} src={img} alt={`Imagen ${index + 1}`} className="detalle-imagen" />
+    <img
+      key={index}
+      src={img}
+      alt={`Imagen ${index + 1}`}
+      className="detalle-imagen"
+      onError={(e) => { e.target.style.display = 'none'; }}
+    />
   ))}
 </div>
       <h1>{propiedad.titulo}</h1>

@@ -154,7 +154,14 @@ const PropiedadesPublic = () => {
           {Array.isArray(propiedades) && propiedades.length > 0 ? (
             propiedades.map((prop) => (
               <div key={prop.id} className="prop-card" onClick={() => navigate(`/propiedades/${prop.id}`)}>
-                <img src={prop.url} alt={prop.titulo} className="prop-img" />
+                {prop.url && (
+                  <img
+                    src={prop.url}
+                    alt={prop.titulo}
+                    className="prop-img"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                )}
                 <div className="prop-info">
                   <h3>{prop.titulo}</h3>
                   <p className="tipo-zona">{capitalize(prop.tipo)} en {capitalize(prop.zona)}</p>
