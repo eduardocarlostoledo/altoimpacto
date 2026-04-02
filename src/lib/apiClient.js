@@ -1,15 +1,34 @@
 import axios from "axios";
 
-const DEFAULT_PROD_API_URL = "https://globalhomegroup-backend-production.up.railway.app";
+const DEFAULT_PROD_API_URL = "https://helpful-grace-production-4a12.up.railway.app";
 const DEFAULT_LOCAL_API_URL = "http://localhost:3001";
 
 const trimTrailingSlash = (value = "") => value.replace(/\/+$/, "");
+const hasProtocol = (value = "") => /^https?:\/\//i.test(value);
 
 const isLocalHost = (hostname = "") =>
   hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1";
 
+const normalizeConfiguredUrl = (value = "") => {
+  const normalizedValue = trimTrailingSlash(value.trim());
+
+  if (!normalizedValue) {
+    return "";
+  }
+
+  if (hasProtocol(normalizedValue)) {
+    return normalizedValue;
+  }
+
+  if (normalizedValue.includes("localhost") || normalizedValue.startsWith("127.0.0.1")) {
+    return `http://${normalizedValue}`;
+  }
+
+  return `https://${normalizedValue}`;
+};
+
 const resolveApiBaseUrl = () => {
-  const configuredUrl = trimTrailingSlash(import.meta.env.VITE_API_URL || "");
+  const configuredUrl = normalizeConfiguredUrl(import.meta.env.VITE_API_URL || "");
 
   if (typeof window === "undefined") {
     return configuredUrl || DEFAULT_PROD_API_URL;
@@ -34,7 +53,6 @@ const apiClient = axios.create({
   allowAbsoluteUrls: false,
   headers: {
     Accept: "application/json",
-    "X-Requested-With": "XMLHttpRequest",
   },
 });
 
